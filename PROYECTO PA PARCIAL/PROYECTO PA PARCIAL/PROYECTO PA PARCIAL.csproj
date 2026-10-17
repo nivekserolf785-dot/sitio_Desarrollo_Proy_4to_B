@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Login.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,7 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controlador\" />
-    <Folder Include="Entidades\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\login.png" />
