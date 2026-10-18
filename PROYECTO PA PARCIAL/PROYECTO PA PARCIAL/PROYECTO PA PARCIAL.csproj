@@ -74,11 +74,11 @@
     <Compile Include="Formulario\FrmFractura.Designer.cs">
       <DependentUpon>FrmFractura.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario\FrmGerente.cs">
+    <Compile Include="Formulario\Frm_Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formulario\FrmGerente.Designer.cs">
-      <DependentUpon>FrmGerente.cs</DependentUpon>
+    <Compile Include="Formulario\Frm_Inicio.Designer.cs">
+      <DependentUpon>Frm_Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulario\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -106,8 +106,8 @@
     <EmbeddedResource Include="Formulario\FrmFractura.resx">
       <DependentUpon>FrmFractura.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formulario\FrmGerente.resx">
-      <DependentUpon>FrmGerente.cs</DependentUpon>
+    <EmbeddedResource Include="Formulario\Frm_Inicio.resx">
+      <DependentUpon>Frm_Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>

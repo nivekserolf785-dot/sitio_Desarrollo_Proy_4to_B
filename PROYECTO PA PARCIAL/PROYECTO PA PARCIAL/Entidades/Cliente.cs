@@ -11,6 +11,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         private string cedula;
         private string nombre;
         private string apellido;
+        private char sexo;
         private string celular;
         private string direccion;
         private string ciudad;
@@ -20,11 +21,12 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         {
         }
 
-        public Cliente(string ced, string nom, string ape, string cel, string dir, string ciu, string cor)
+        public Cliente(string ced, string nom, string ape, char sex, string cel, string dir, string ciu, string cor)
         {
             this.Cedula = ced;
             this.Nombre = nom;
             this.Apellido = ape;
+            this.Sexo = sex;
             this.Celular = cel;
             this.Direccion = dir;
             this.Ciudad = ciu;
@@ -34,6 +36,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         public string Cedula { get => cedula; set => cedula = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
+        public char Sexo { get => sexo; set => sexo = value; }
         public string Celular { get => celular; set => celular = value; }
         public string Direccion { get => direccion; set => direccion = value; }
         public string Ciudad { get => ciudad; set => ciudad = value; }
@@ -41,7 +44,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
 
         public string GetCliente()
         {
-            string datos = $"{this.Cedula};{this.Nombre};{this.Apellido};{this.Celular};{this.Direccion};{this.Ciudad};{this.Correo};";
+            string datos = $"{this.Cedula};{this.Nombre};{this.Apellido};{this.Sexo};{this.Celular};{this.Direccion};{this.Ciudad};{this.Correo};";
             return datos;
         }
     }

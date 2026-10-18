@@ -16,5 +16,30 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             InitializeComponent();
         }
+        private string rolRecibido;
+        public  FrmVendedor (string rol)
+        {
+            InitializeComponent();
+            this.rolRecibido = rol;
+            ConfigurarControlesPorRol();
+        }
+        private void ConfigurarControlesPorRol()
+        {
+            if (rolRecibido == "ROL VENDEDOR")
+            {
+                // Aquí desactiva o oculta lo que el vendedor no deba tocar en este formulario específico
+                // btnEliminarCliente.Enabled = false;
+                // txtDescuentoEspecial.Enabled = false;
+            }
+        }
+        private void FrmVendedor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
