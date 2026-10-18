@@ -17,7 +17,7 @@ namespace PROYECTO_PA_PARCIAL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmGerente());
+            Application.Run(new FrmPrincipal());
         }
     }
 }
