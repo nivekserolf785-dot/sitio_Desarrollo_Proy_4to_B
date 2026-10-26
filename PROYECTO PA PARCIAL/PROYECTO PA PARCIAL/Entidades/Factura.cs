@@ -28,7 +28,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
             this.FechaEmision = fecEmi;
             this.TotalFactura = totFac;
             this.FormaPago = forPag;
-            this.DetalleItems = items ?? new List<ItemCarrito>();
+            this.DetalleItems = items ?? new List<ItemCarrito>();// lista carrito
         }
 
         // Propiedades públicas (PascalCase)
