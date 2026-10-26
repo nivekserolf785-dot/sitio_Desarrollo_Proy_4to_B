@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROYECTO_PA_PARCIAL.Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +41,11 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

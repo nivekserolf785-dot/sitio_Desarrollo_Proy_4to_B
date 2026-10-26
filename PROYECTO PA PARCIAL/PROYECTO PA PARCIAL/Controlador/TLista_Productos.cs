@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace PROYECTO_PA_PARCIAL.Controlador
 {
-    internal class TLista_Productos
+    
+       public class TLista_Productos
     {
         public static List<Producto> listaProductos = new List<Producto>();
 
@@ -110,6 +111,23 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 }
             }
             return resultado;
+        }
+        public string GenerarCodigoAutomatico()
+        {
+            int nuevoNumero = 1;
+            if (listaProductos.Count > 0)
+            {
+                int maxNum = 0;
+                foreach (var p in listaProductos)
+                {
+                    if (p.Codigo != null && p.Codigo.StartsWith("P") && int.TryParse(p.Codigo.Substring(1), out int num))
+                    {
+                        if (num > maxNum) maxNum = num;
+                    }
+                }
+                nuevoNumero = maxNum + 1;
+            }
+            return "P" + nuevoNumero.ToString("D3"); // Genera formatos como P023, P024, etc.
         }
     }
 }

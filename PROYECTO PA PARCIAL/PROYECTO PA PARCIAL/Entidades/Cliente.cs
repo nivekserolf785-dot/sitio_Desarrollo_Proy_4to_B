@@ -41,7 +41,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         public string Direccion { get => direccion; set => direccion = value; }
         public string Ciudad { get => ciudad; set => ciudad = value; }
         public string Correo { get => correo; set => correo = value; }
-
+        public string NombreCompleto => $"{this.Nombre} {this.Apellido}";
         public string GetCliente()
         {
             string datos = $"{this.Cedula};{this.Nombre};{this.Apellido};{this.Sexo};{this.Celular};{this.Direccion};{this.Ciudad};{this.Correo};";

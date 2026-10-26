@@ -76,7 +76,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(674, 184);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(696, 184);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -253,12 +254,13 @@
             // button5
             // 
             this.button5.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.Lupa;
-            this.button5.Location = new System.Drawing.Point(545, 25);
+            this.button5.Location = new System.Drawing.Point(533, 25);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(40, 45);
+            this.button5.Size = new System.Drawing.Size(52, 45);
             this.button5.TabIndex = 22;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 

@@ -23,12 +23,12 @@ namespace PROYECTO_PA_PARCIAL.Entidades
             this.Celularv = celv;
             this.Ciudadv = ciuv;
         }
-        public string Ciudadv { get => Ciudadv1; set => Ciudadv1 = value; }
+        
         public string Cedulav { get => cedulav; set => cedulav = value; }
         public string Nombrev { get => nombrev; set => nombrev = value; }
         public string Apellidov { get => apellidov; set => apellidov = value; }
         public string Celularv { get => celularv; set => celularv = value; }
-        public string Ciudadv1 { get => ciudadv; set => ciudadv = value; }
+        public string Ciudadv { get => ciudadv; set => ciudadv = value; }
         public string GetVendedor()
         {
             string datos = $"{this.Cedulav};{this.Nombrev};{this.Apellidov};{this.Celularv};{this.Ciudadv};";

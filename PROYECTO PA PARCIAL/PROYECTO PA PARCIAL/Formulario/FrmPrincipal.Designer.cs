@@ -45,7 +45,7 @@
             // 
             pictureBox1.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.logologin_modified;
             pictureBox1.Location = new System.Drawing.Point(11, 1);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new System.Drawing.Size(520, 459);
             pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -79,7 +79,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(596, 332);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(144, 36);
@@ -89,7 +89,7 @@
             // 
             this.pictureBox2.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.login;
             this.pictureBox2.Location = new System.Drawing.Point(561, 46);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(217, 166);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -141,7 +141,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmPrincipal";
             this.Text = "FrmPrincipal";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);

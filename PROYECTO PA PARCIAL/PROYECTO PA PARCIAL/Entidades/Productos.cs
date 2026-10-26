@@ -14,12 +14,12 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         private string marca;
         private double precio;
         private double stock;
-        private string fechaCaducidad;
+        private DateTime fechaCaducidad;
 
         // Constructor vacío
         public Producto()
         { }
-        public Producto(string codigo, string nombre, string categoria, string marca, double precio, double stock, string fechaCaducidad)
+        public Producto(string codigo, string nombre, string categoria, string marca, double precio, double stock, DateTime fechaCaducidad)
         {
             this.Codigo = codigo;
             this.Nombre = nombre;
@@ -29,24 +29,18 @@ namespace PROYECTO_PA_PARCIAL.Entidades
             this.Stock = stock;
             this.FechaCaducidad = fechaCaducidad;
         }
-public string Codigo { get => codigo; set => codigo = value; }
+
+        public string Codigo { get => codigo; set => codigo = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Categoria { get => categoria; set => categoria = value; }
         public string Marca { get => marca; set => marca = value; }
         public double Precio { get => precio; set => precio = value; }
         public double Stock { get => stock; set => stock = value; }
-        public string FechaCaducidad { get => fechaCaducidad; set => fechaCaducidad = value; }
-
+        public DateTime FechaCaducidad { get => fechaCaducidad; set => fechaCaducidad = value; }
+        public string NombreCategoria => $"{this.Nombre} - {this.Categoria}";
         public string GetProducto()
         {
-            string datos = this.Nombre + ";";
-            datos += this.Marca + ";";
-            datos += this.Codigo + ";";
-            datos += this.Precio + ";";
-            datos += this.Categoria + ";";
-            datos += this.Stock + ";";
-            return datos;
-
+            return $"{this.Nombre};{this.Marca};{this.Codigo};{this.Precio};{this.Categoria};{this.Stock};";
         }
     }
 }
