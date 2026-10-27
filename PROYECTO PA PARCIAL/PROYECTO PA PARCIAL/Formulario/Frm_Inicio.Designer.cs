@@ -69,10 +69,11 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.Lime;
             this.button5.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.factura_removebg_preview__1_;
             resources.ApplyResources(this.button5, "button5");
             this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
