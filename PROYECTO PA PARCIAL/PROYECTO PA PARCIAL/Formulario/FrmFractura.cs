@@ -20,7 +20,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         private TLista_ItemCarrito controlador = new TLista_ItemCarrito();
         private TLista_Facturas controladorFactura = new TLista_Facturas();
 
-        // Contador estático para el número de factura secuencial (000001, 000002...)
+      
         private static int contadorFactura = 1;
 
         public FrmFractura()
@@ -29,20 +29,10 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             InicializarDatos();
         }
 
-        public FrmFractura(string rol) // Recibe el rol
+        public FrmFractura(string rol)
         {
             InitializeComponent();
             this.rolRecibido = rol;
-
-            // =========================================================================
-            // CARGAR CLIENTES, PRODUCTOS Y FACTURAS DIRECTAMENTE DESDE SUS CSV AL ABRIR
-            // =========================================================================
-            TLista_Cliente.Leer();
-            // 1. Leemos los productos del CSV
-            TLista_Productos.Leer();
-            TLista_Facturas.Leer();
-
-            CargarCombos();
             InicializarDatos();
             ConfigurarControlesPorRol();
         }
@@ -432,14 +422,32 @@ namespace PROYECTO_PA_PARCIAL.Formulario
       
         private void FrmFractura_Load(object sender, EventArgs e)
         {
+            try
+            {
+                // 1. FORZAMOS LA LECTURA DE LOS ARCHIVOS CSV SIEMPRE AL ABRIR
+                TLista_Cliente.Leer();
+                TLista_Productos.Leer();
+                TLista_Facturas.Leer();
 
+                // 2. CARGAMOS LOS COMBOS Y DATOS
+                CargarCombos();
+
+                // 3. ESTILOS DE TABLAS
+                dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+                dataGridView2.DefaultCellStyle.ForeColor = Color.Black;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos iniciales de la factura: " + ex.Message,
+                                "Atención", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             dataGridView1.DefaultCellStyle.ForeColor = Color.Black;
             dataGridView2.DefaultCellStyle.ForeColor = Color.Black;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)

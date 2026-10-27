@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -96,8 +97,47 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            DialogResult resultado = MessageBox.Show("¿Desea bloquear el sistema y volver al inicio de sesión?",
+                                             "Bloquear Sistema",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                FrmPrincipal frmPrincipal = new FrmPrincipal();
+
+               
+                frmPrincipal.Show();
+
         
-            
+                this.Hide();
+            }
+
+        }
+
+        private void reportesClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            FrmReporteClientes frmReporte = new FrmReporteClientes();
+            AbrirFormularioEnPanel(frmReporte);
+        }
+
+        private void reporteProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteProductos frmReporte = new FrmReporteProductos();
+            AbrirFormularioEnPanel(frmReporte);
+        }
+
+        private void reporteVendedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteVendedores frmReporte = new FrmReporteVendedores();
+            AbrirFormularioEnPanel(frmReporte);
+        }
+
+        private void reporteFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteFacturas frmReporte = new FrmReporteFacturas();
+            AbrirFormularioEnPanel(frmReporte);
         }
     }
 }
