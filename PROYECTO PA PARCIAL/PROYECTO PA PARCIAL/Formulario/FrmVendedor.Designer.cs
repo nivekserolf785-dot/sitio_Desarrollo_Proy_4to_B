@@ -78,7 +78,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 57);
+            this.textBox1.Location = new System.Drawing.Point(119, 85);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 20);
@@ -169,7 +169,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 84);
+            this.textBox2.Location = new System.Drawing.Point(119, 123);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(121, 20);
@@ -177,7 +177,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(119, 124);
+            this.textBox3.Location = new System.Drawing.Point(119, 154);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(121, 20);
@@ -185,7 +185,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 156);
+            this.textBox4.Location = new System.Drawing.Point(131, 216);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(121, 20);
@@ -193,7 +193,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(119, 217);
+            this.textBox5.Location = new System.Drawing.Point(119, 247);
             this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(121, 20);
@@ -201,7 +201,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(119, 250);
+            this.textBox6.Location = new System.Drawing.Point(274, 57);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(121, 20);
@@ -210,7 +210,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 187);
+            this.comboBox1.Location = new System.Drawing.Point(119, 178);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -247,6 +247,7 @@
             this.button3.Size = new System.Drawing.Size(69, 37);
             this.button3.TabIndex = 28;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -257,6 +258,7 @@
             this.button2.Size = new System.Drawing.Size(67, 37);
             this.button2.TabIndex = 27;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button5
             // 
@@ -267,6 +269,7 @@
             this.button5.Size = new System.Drawing.Size(69, 37);
             this.button5.TabIndex = 26;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FrmVendedor
             // 
