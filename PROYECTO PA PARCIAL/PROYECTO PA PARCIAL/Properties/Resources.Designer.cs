@@ -123,16 +123,6 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FONDO__1_ {
-            get {
-                object obj = ResourceManager.GetObject("FONDO (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap GUARDAR {
             get {
                 object obj = ResourceManager.GetObject("GUARDAR", resourceCulture);
@@ -146,6 +136,16 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         internal static System.Drawing.Bitmap Imagen_de_WhatsApp_2025_07_18_a_las_16_17_42_7cd80df7 {
             get {
                 object obj = ResourceManager.GetObject("Imagen de WhatsApp 2025-07-18 a las 16.17.42_7cd80df7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jonakoh___NPDRGf0w1lw_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("jonakoh-_-NPDRGf0w1lw-unsplash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,16 +236,6 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         internal static System.Drawing.Bitmap Reporte {
             get {
                 object obj = ResourceManager.GetObject("Reporte", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap user_3237472__1_ {
-            get {
-                object obj = ResourceManager.GetObject("user_3237472 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

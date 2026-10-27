@@ -22,13 +22,31 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             InitializeComponent();
             this.rolUsuario = rol;// si no se pone el this no se puede acceder a la variable rolUsuario en otros métodos de la clase
         }
+        private void AbrirFormularioEnPanel(Form formHijo)
+        {
+            // Si ya hay un formulario abierto dentro del panel, lo removemos para liberar memoria
+            if (panelContenedor.Controls.Count > 0)
+            {
+                panelContenedor.Controls[0].Dispose();
+                panelContenedor.Controls.Clear();
+            }
+
+            // Configuramos el formulario hijo para que se comporte como un control interno
+            formHijo.TopLevel = false;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill; // Hace que se adapte perfectamente al tamaño del panel
+
+            // Lo agregamos al panel contenedor del formulario principal y lo mostramos
+            panelContenedor.Controls.Add(formHijo);
+            panelContenedor.Tag = formHijo;
+            formHijo.Show();
+        }
         private void FrmGerente_Load(object sender, EventArgs e)
         {
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmClientes frmClientes = new FrmClientes(rolUsuario);
-            frmClientes.Visible = true;
+          
 
         }
 
@@ -48,6 +66,38 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             FrmFractura frmFactura = new FrmFractura(rolUsuario);
             frmFactura.Visible = true;
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioEnPanel(new FrmProducto());
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioEnPanel(new FrmFractura());
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            FrmClientes frmCli = new FrmClientes();
+            AbrirFormularioEnPanel(frmCli);
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioEnPanel(new FrmVendedor());
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+        
+            
         }
     }
 }
