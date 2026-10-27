@@ -1,6 +1,7 @@
 ﻿using PROYECTO_PA_PARCIAL.Entidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,62 @@ namespace PROYECTO_PA_PARCIAL.Controlador
     public class TLista_Facturas
     {
         public static List<Factura> listaFacturas = new List<Factura>();
+        public static string archivoCsv = Global.GetPath() + "facturas.csv";
 
-      
+        // --- MÉTODOS DE ARCHIVO CSV ---
+        public static void Guardar()
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(archivoCsv, false))
+                {
+                    foreach (var f in listaFacturas)
+                    {
+                        sw.WriteLine(f.GetFactura());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al guardar el archivo CSV de facturas: " + ex.Message);
+            }
+        }
+
+        public static void Leer()
+        {
+            try
+            {
+                if (File.Exists(archivoCsv))
+                {
+                    listaFacturas.Clear();
+                    string[] lineas = File.ReadAllLines(archivoCsv);
+                    foreach (var linea in lineas)
+                    {
+                        if (!string.IsNullOrWhiteSpace(linea))
+                        {
+                            string[] partes = linea.Split(';');
+                            if (partes.Length >= 6)
+                            {
+                                // Asumiendo formato: NumFactura;Ruc;CedulaCliente;FechaEmision;TotalFactura;FormaPago
+                                Factura f = new Factura(
+                                    partes[0],
+                                    partes[1],
+                                    partes[2],
+                                    partes[3],
+                                    double.TryParse(partes[4], out double tot) ? tot : 0.0,
+                                    partes[5]
+                                );
+                                listaFacturas.Add(f);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer el archivo CSV de facturas: " + ex.Message);
+            }
+        }
         public int Cantidad()
         {
             return listaFacturas.Count;

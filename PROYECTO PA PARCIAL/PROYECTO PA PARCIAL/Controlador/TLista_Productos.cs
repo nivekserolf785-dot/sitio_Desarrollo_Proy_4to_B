@@ -1,17 +1,57 @@
 ﻿using PROYECTO_PA_PARCIAL.Entidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PROYECTO_PA_PARCIAL.Controlador
 {
-    
-       public class TLista_Productos
+    public class TLista_Productos
     {
         public static List<Producto> listaProductos = new List<Producto>();
+        public static string archivoCsv = Global.GetPath() + "productos.csv";
+        public static void Leer()
+        {
+            listaProductos.Clear();
 
+            if (File.Exists(archivoCsv))
+            {
+                string[] lineas = File.ReadAllLines(archivoCsv);
+                foreach (string linea in lineas)
+                {
+                    if (string.IsNullOrWhiteSpace(linea)) continue;
+                    string[] partes = linea.Split(';');
+                    if (partes.Length >= 7)
+                    {
+                        Producto p = new Producto(
+                            partes[0], // Código
+                            partes[1], // Nombre
+                            partes[2], // Categoria
+                            partes[3], // Marca
+                            double.TryParse(partes[4], out double precio) ? precio : 0.0,
+                            double.TryParse(partes[5], out double stock) ? stock : 0.0,
+                            DateTime.TryParse(partes[6], out DateTime fecha) ? fecha : DateTime.Now
+                        );
+                        listaProductos.Add(p);
+                    }
+                }
+            }
+        }
+
+        public static void Guardar()
+        {
+            List<string> lineas = new List<string>();
+
+            foreach (var p in listaProductos)
+            {
+                string linea = $"{p.Codigo};{p.Nombre};{p.Categoria};{p.Marca};{p.Precio};{p.Stock};{p.FechaCaducidad:yyyy-MM-dd}";
+                lineas.Add(linea);
+            }
+
+            File.WriteAllLines(archivoCsv, lineas);
+        }
         // Este método permite obtener la cantidad total de productos registrados en la lista
         public int Cantidad()
         {
@@ -112,6 +152,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
             return resultado;
         }
+
         public string GenerarCodigoAutomatico()
         {
             int nuevoNumero = 1;

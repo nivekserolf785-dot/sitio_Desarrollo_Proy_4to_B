@@ -14,38 +14,34 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 {
     public partial class FrmClientes : Form
     {
+        private string rolRecibido;
+        private bool esModificacion = false;
+
         public FrmClientes()
         {
             InitializeComponent();
             cargarComboSexo();
         }
-        private string rolRecibido;
-        private bool esModificacion = false;
-        private TLista_Cliente controlador = new TLista_Cliente();
-        public FrmClientes(string rol)// recibe el rol del usuario que inició sesión
+
+        public FrmClientes(string rol) // recibe el rol del usuario que inició sesión
         {
             InitializeComponent();
             this.rolRecibido = rol;
             ConfigurarControlesPorRol();
+            cargarComboSexo();
         }
+
         // Carga del ComboBox de Sexo ("M" y "F")
         public void cargarComboSexo()
         {
             comboBox1.Items.Clear();
             comboBox1.Items.Add("M");
             comboBox1.Items.Add("F");
-            comboBox1.SelectedIndex = 0;
+            if (comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0;
         }
 
-        // Datos iniciales de prueba
-        public void CargarDatos()
-        {
-            if (TLista_Cliente.listaClientes.Count == 0)
-            {
-                TLista_Cliente.listaClientes.Add(new Cliente("0701234567", "Carlos", "Mendoza", 'M', "0987654321", "Av. Central 123", "Machala", "carlos@email.com"));
-                TLista_Cliente.listaClientes.Add(new Cliente("0709876543", "Maria", "Guerrero", 'F', "0991122334", "Calle Bolivar 456", "Pasaje", "maria@email.com"));
-            }
-        }
+        // Datos iniciales cargados desde CSV o con los 10 registros de prueba por defecto
+       
 
         // Mostrar lista en el DataGridView
         public void Listar()
@@ -54,7 +50,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             dataGridView1.DataSource = TLista_Cliente.listaClientes.ToList();
         }
 
-        // Limpiar cajas de texto
         public bool ValidarDatos()
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || // Cédula
@@ -67,7 +62,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             return true;
         }
 
-        // 2. Método CrearObjeto()
         public Cliente CrearObjeto()
         {
             if (!ValidarDatos()) return null;
@@ -84,7 +78,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             return new Cliente(cedula, nombre, apellido, sexo, celular, direccion, ciudad, correo);
         }
 
-        // 3. Método setDatosCliente(Cliente cli)
         public void setDatosCliente(Cliente cli)
         {
             if (cli != null)
@@ -103,25 +96,23 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             }
         }
 
-        // 4. Método Limpiar()
         public void Limpiar()
         {
             esModificacion = false;
-            textBox1.Enabled = true; // Rehabilita el campo cédula para nuevos registros
+            textBox1.Enabled = true;
 
-            textBox1.Clear(); // Cédula
-            textBox2.Clear(); // Nombre
-            textBox3.Clear(); // Apellido
-            if (comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0; // Sexo
-            textBox4.Clear(); // Celular
-            textBox5.Clear(); // Dirección
-            textBox6.Clear(); // Ciudad
-            textBox7.Clear(); // Email
-            textBox8.Clear(); // Buscador
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            if (comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0;
+            textBox4.Clear();
+            textBox5.Clear();
+            textBox6.Clear();
+            textBox7.Clear();
+            if (textBox8 != null) textBox8.Clear();
             textBox1.Focus();
         }
 
-        // 5. Método Guardar()
         public void Guardar()
         {
             try
@@ -129,16 +120,21 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 Cliente obj = CrearObjeto();
                 if (obj != null)
                 {
+                    TLista_Cliente controladorInstancia = new TLista_Cliente();
+
                     if (!esModificacion)
                     {
-                        controlador.Insertar(obj);
+                        controladorInstancia.Insertar(obj);
                         MessageBox.Show("Cliente ingresado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        controlador.Modificar(obj, obj.Cedula);
+                        controladorInstancia.Modificar(obj, obj.Cedula);
                         MessageBox.Show("Cliente modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
+                    // Guardar en el archivo CSV de forma estática
+                    TLista_Cliente.Guardar();
 
                     Listar();
                     Limpiar();
@@ -150,28 +146,28 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             }
         }
 
-        // 6. Método Modificar() adaptado para trabajar en el mismo formulario
         public void Modificar()
         {
             try
             {
                 if (dataGridView1.CurrentRow != null)
                 {
-                    // Si aún no se han cargado los datos en los TextBox, el primer clic los carga para editar
                     if (!esModificacion)
                     {
                         int index = dataGridView1.CurrentRow.Index;
-                        Cliente cli = controlador.GetCliente(index);
+                        TLista_Cliente controladorInstancia = new TLista_Cliente();
+                        Cliente cli = controladorInstancia.GetCliente(index);
                         setDatosCliente(cli);
-                        MessageBox.Show("Datos cargados. Edite los campos y vuelva a presionar Modificar (o Guardar) para confirmar.", "Modo Edición", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Datos cargados. Edite los campos y vuelva a presionar Modificar para confirmar.", "Modo Edición", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        // Si ya estaba en modo edición, crea el objeto actualizado y guarda los cambios
                         Cliente objActualizado = CrearObjeto();
                         if (objActualizado != null)
                         {
-                            controlador.Modificar(objActualizado, objActualizado.Cedula);
+                            TLista_Cliente controladorInstancia = new TLista_Cliente();
+                            controladorInstancia.Modificar(objActualizado, objActualizado.Cedula);
+                            TLista_Cliente.Guardar();
                             MessageBox.Show("Cliente modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Listar();
                             Limpiar();
@@ -189,7 +185,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             }
         }
 
-        // Método Eliminar()
         public void Eliminar()
         {
             try
@@ -197,7 +192,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 if (dataGridView1.CurrentRow != null)
                 {
                     int index = dataGridView1.CurrentRow.Index;
-                    Cliente clienteSeleccionado = controlador.GetCliente(index);
+                    TLista_Cliente controladorInstancia = new TLista_Cliente();
+                    Cliente clienteSeleccionado = controladorInstancia.GetCliente(index);
 
                     DialogResult respuesta = MessageBox.Show(
                         $"¿Está seguro de eliminar al cliente {clienteSeleccionado.Nombre} {clienteSeleccionado.Apellido}?",
@@ -208,7 +204,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
                     if (respuesta == DialogResult.Yes)
                     {
-                        controlador.Eliminar(clienteSeleccionado.Cedula);
+                        controladorInstancia.Eliminar(clienteSeleccionado.Cedula);
+                        TLista_Cliente.Guardar();
                         MessageBox.Show("Registro eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Listar();
                         Limpiar();
@@ -225,7 +222,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             }
         }
 
-        // Método Buscar()
         public void Buscar()
         {
             try
@@ -238,7 +234,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                     return;
                 }
 
-                List<Cliente> listaFiltrada = controlador.BuscarClientes(textoBuscar);
+                TLista_Cliente controladorInstancia = new TLista_Cliente();
+                List<Cliente> listaFiltrada = controladorInstancia.BuscarClientes(textoBuscar);
 
                 if (listaFiltrada.Count > 0)
                 {
@@ -261,49 +258,23 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             if (rolRecibido == "ROL VENDEDOR")
             {
-                button3.Enabled = false; // Deshabilitar el botón de eliminar cliente para el vendedor
+                button3.Enabled = false; // Deshabilitar eliminar para vendedor
             }
         }
 
-
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            CargarDatos();
+           
             Listar();
             cargarComboSexo();
         }
-        
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Guardar();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Modificar();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Eliminar();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Buscar();
-        }
+        private void button4_Click(object sender, EventArgs e) => this.Close();
+        private void button1_Click(object sender, EventArgs e) => Guardar();
+        private void button2_Click(object sender, EventArgs e) => Modificar();
+        private void button3_Click(object sender, EventArgs e) => Eliminar();
+        private void button5_Click(object sender, EventArgs e) => Buscar();
+        private void label1_Click(object sender, EventArgs e) { }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
     }
 }

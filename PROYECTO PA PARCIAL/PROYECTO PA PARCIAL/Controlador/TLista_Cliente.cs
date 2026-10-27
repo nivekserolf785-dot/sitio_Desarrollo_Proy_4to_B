@@ -1,6 +1,7 @@
 ﻿using PROYECTO_PA_PARCIAL.Entidades;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,64 @@ namespace PROYECTO_PA_PARCIAL.Controlador
     {
     
         public static List<Cliente> listaClientes = new List<Cliente>();
+        public static string archivoCsv = Global.GetPath() + "clientes.csv";
+        // --- MÉTODOS DE ARCHIVO CSV ---
+        public static void Guardar()
+        {
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(archivoCsv, false))
+                {
+                    foreach (var c in listaClientes)
+                    {
+                        // Usamos el método GetCliente() que ya tiene en su entidad
+                        sw.WriteLine(c.GetCliente());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al guardar el archivo CSV de clientes: " + ex.Message);
+            }
+        }
+
+        public static void Leer()
+        {
+            try
+            {
+                if (File.Exists(archivoCsv))
+                {
+                    listaClientes.Clear();
+                    string[] lineas = File.ReadAllLines(archivoCsv);
+                    foreach (var linea in lineas)
+                    {
+                        if (!string.IsNullOrWhiteSpace(linea))
+                        {
+                            string[] partes = linea.Split(';');
+                            if (partes.Length >= 8)
+                            {
+                                // Asumiendo formato: Cedula;Nombre;Apellido;Sexo;Celular;Direccion;Ciudad;Correo
+                                Cliente c = new Cliente(
+                                    partes[0],
+                                    partes[1],
+                                    partes[2],
+                                    !string.IsNullOrEmpty(partes[3]) ? partes[3][0] : 'M',
+                                    partes[4],
+                                    partes[5],
+                                    partes[6],
+                                    partes[7]
+                                );
+                                listaClientes.Add(c);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al leer el archivo CSV de clientes: " + ex.Message);
+            }
+        }
         public int Cantidad()
         {
             return listaClientes.Count;

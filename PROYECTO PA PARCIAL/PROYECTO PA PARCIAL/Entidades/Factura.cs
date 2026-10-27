@@ -13,13 +13,27 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         private string cedulaCliente;
         private string fechaEmision;
         private double totalFactura;
-        private string formaPago; // "Efectivo" o "Transferencia"
+        private string formaPago;
         private List<ItemCarrito> detalleItems = new List<ItemCarrito>();
 
+        // 1. Constructor vacío
         public Factura()
         {
         }
 
+        // 2. Constructor antiguo de 6 parámetros (para compatibilidad al leer del CSV)
+        public Factura(string numFac, string rucVal, string cedCli, string fecEmi, double totFac, string forPag)
+        {
+            this.NumFactura = numFac;
+            this.Ruc = rucVal;
+            this.CedulaCliente = cedCli;
+            this.FechaEmision = fecEmi;
+            this.TotalFactura = totFac;
+            this.FormaPago = forPag;
+            this.DetalleItems = new List<ItemCarrito>(); // Lista vacía por defecto
+        }
+
+        // 3. Constructor completo de 7 parámetros (para cuando se crea desde el carrito)
         public Factura(string numFac, string rucVal, string cedCli, string fecEmi, double totFac, string forPag, List<ItemCarrito> items)
         {
             this.NumFactura = numFac;
@@ -28,9 +42,8 @@ namespace PROYECTO_PA_PARCIAL.Entidades
             this.FechaEmision = fecEmi;
             this.TotalFactura = totFac;
             this.FormaPago = forPag;
-            this.DetalleItems = items ?? new List<ItemCarrito>();// lista carrito
+            this.DetalleItems = items ?? new List<ItemCarrito>();
         }
-
         // Propiedades públicas (PascalCase)
         public string NumFactura { get => numFactura; set => numFactura = value; }
         public string Ruc { get => ruc; set => ruc = value; }

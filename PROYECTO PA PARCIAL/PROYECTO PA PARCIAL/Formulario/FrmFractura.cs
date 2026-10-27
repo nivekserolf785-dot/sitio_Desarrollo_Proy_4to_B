@@ -29,22 +29,30 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             InicializarDatos();
         }
 
-        public FrmFractura(string rol) // Recibe únicamente el rol como en FrmClientes
+        public FrmFractura(string rol) // Recibe el rol
         {
             InitializeComponent();
             this.rolRecibido = rol;
+
+            // =========================================================================
+            // CARGAR CLIENTES, PRODUCTOS Y FACTURAS DIRECTAMENTE DESDE SUS CSV AL ABRIR
+            // =========================================================================
+            TLista_Cliente.Leer();
+            // 1. Leemos los productos del CSV
+            TLista_Productos.Leer();
+            TLista_Facturas.Leer();
+
             CargarCombos();
             InicializarDatos();
             ConfigurarControlesPorRol();
         }
-
         // Carga tradicional de ComboBox mediante bucles directos
         public void CargarCombos()
         {
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
 
-            // 1. Cargar Nombre Completo de los clientes en comboBox1
+            // 2. Cargar Nombre Completo de los clientes desde la lista ya leída
             if (TLista_Cliente.listaClientes != null)
             {
                 foreach (var cliente in TLista_Cliente.listaClientes)
@@ -53,7 +61,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 }
             }
 
-            // 2. Cargar productos en comboBox2
+            // 3. Cargar productos desde la lista ya leída
             if (TLista_Productos.listaProductos != null)
             {
                 foreach (var producto in TLista_Productos.listaProductos)
@@ -62,7 +70,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 }
             }
 
-            // 3. Cargar Forma de Pago en comboBox3
+            // 4. Cargar Forma de Pago en comboBox3
             comboBox3.Items.Clear();
             comboBox3.Items.Add("Efectivo");
             comboBox3.Items.Add("Transferencia");
@@ -80,8 +88,27 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             textBox1.Text = DateTime.Now.ToShortDateString();
             textBox2.Text = !string.IsNullOrEmpty(rolRecibido) ? rolRecibido : "Administrador";
 
-            textBox3.Text = contadorFactura.ToString("D6");
+            // =========================================================================
+            // CÁLCULO AUTOMÁTICO DEL NÚMERO DE FACTURA SECUENCIAL DESDE EL CSV
+            // =========================================================================
+            int siguienteNumero = 1;
+            if (TLista_Facturas.listaFacturas != null && TLista_Facturas.listaFacturas.Count > 0)
+            {
+                // Intenta obtener el número de la última factura registrada y sumarle 1
+                var ultimaFactura = TLista_Facturas.listaFacturas.LastOrDefault();
+                if (ultimaFactura != null && int.TryParse(ultimaFactura.NumFactura, out int numUltimo))
+                {
+                    siguienteNumero = numUltimo + 1;
+                }
+                else
+                {
+                    siguienteNumero = TLista_Facturas.listaFacturas.Count + 1;
+                }
+            }
+
+            textBox3.Text = siguienteNumero.ToString("D6"); // Formato 000001, 000002...
             textBox3.Enabled = false;
+            // =========================================================================
 
             LimpiarCamposProducto();
             textBox8.Text = "0.00";
@@ -90,7 +117,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
             TLista_ItemCarrito.listaCarrito.Clear();
             Listar();
-            ListarFacturas(); // <-- Agregado para refrescar el dataGridView2
+            ListarFacturas();
         }
 
         // Mostrar lista en el DataGridView superior (carrito)
@@ -185,10 +212,19 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 {
                     ItemCarrito item = TLista_ItemCarrito.listaCarrito[index];
 
+                    // 1. Validar nueva cantidad
                     if (!int.TryParse(textBox6.Text.Trim(), out int nuevaCantidad) || nuevaCantidad <= 0)
                     {
                         MessageBox.Show("Ingrese una cantidad válida para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBox6.Focus();
+                        return;
+                    }
+
+                    // 2. Validar nuevo precio (por si se modificó en el textBox5)
+                    if (!double.TryParse(textBox5.Text.Trim(), out double nuevoPrecio) || nuevoPrecio < 0)
+                    {
+                        MessageBox.Show("Ingrese un precio válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        textBox5.Focus();
                         return;
                     }
 
@@ -199,10 +235,22 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                         return;
                     }
 
+                    // Respaldo de seguridad del cliente
+                    string clienteActual = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : null;
+
+                    // Actualizamos tanto la cantidad como el precio unitario
                     item.Cantidad = nuevaCantidad;
+                    item.PrecioUnitario = nuevoPrecio; // <-- ¡Actualiza el precio en el ítem del carrito!
+
                     Listar();
                     ActualizarTotalesGenerales();
-                    MessageBox.Show("Cantidad modificada correctamente en el carrito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    if (clienteActual != null)
+                    {
+                        comboBox1.SelectedItem = clienteActual;
+                    }
+
+                    MessageBox.Show("Ítem modificado correctamente en el carrito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCamposProducto();
                 }
             }
@@ -240,39 +288,51 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 return;
             }
 
-            if (comboBox1.SelectedIndex == -1)
+            // =========================================================================
+            // BLINDAJE DE CLIENTE: Comprobamos el SelectedIndex O el Text del ComboBox
+            // =========================================================================
+            string nombreSeleccionado = "";
+            if (comboBox1.SelectedItem != null)
             {
-                MessageBox.Show("Por favor seleccione un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                nombreSeleccionado = comboBox1.SelectedItem.ToString();
+            }
+            else if (!string.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+                nombreSeleccionado = comboBox1.Text.Trim();
+            }
+
+            if (string.IsNullOrEmpty(nombreSeleccionado))
+            {
+                MessageBox.Show("Por favor seleccione o escriba un cliente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBox1.Focus();
                 return;
             }
+            // =========================================================================
 
             try
             {
                 string numFactura = textBox3.Text.Trim();
-                string rucEmpresa = "0799999999001"; // O el RUC de su negocio
+                string rucEmpresa = "0705015865001";
                 string fecha = textBox1.Text.Trim();
                 string formaPago = comboBox3.SelectedItem != null ? comboBox3.SelectedItem.ToString() : "Efectivo";
 
                 double total = double.TryParse(textBox10.Text.Trim(), out double t) ? t : 0.0;
 
-                string nombreSeleccionado = comboBox1.SelectedItem.ToString();
-                Cliente clienteEncontrado = TLista_Cliente.listaClientes.FirstOrDefault(c => c.NombreCompleto == nombreSeleccionado);
+                // Buscamos al cliente usando el nombre que capturamos de forma segura
+                Cliente clienteEncontrado = TLista_Cliente.listaClientes.FirstOrDefault(c => c.NombreCompleto.Equals(nombreSeleccionado, StringComparison.OrdinalIgnoreCase));
 
                 if (clienteEncontrado == null)
                 {
-                    MessageBox.Show("No se pudo identificar la cédula del cliente seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se pudo identificar la cédula del cliente seleccionado en el sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 string cedulaCliente = clienteEncontrado.Cedula;
 
-                // ==========================================
-                // AQUÍ VA LA LÍNEA QUE MENCIONA, SEÑOR:
-                // ==========================================
                 Factura nuevaFactura = new Factura(numFactura, rucEmpresa, cedulaCliente, fecha, total, formaPago, TLista_ItemCarrito.listaCarrito.ToList());
 
-                // Luego se inserta con el controlador de facturas
                 controladorFactura.Insertar(nuevaFactura);
+                TLista_Facturas.Guardar();
 
                 MessageBox.Show($"Factura {numFactura} registrada con éxito.", "Facturación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -284,8 +344,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                     dataGridView2.Rows[ultimaFila].Selected = true;
                     dataGridView2.CurrentCell = dataGridView2.Rows[ultimaFila].Cells[0];
                 }
-                contadorFactura++;
-                InicializarDatos();
+
+                InicializarDatos(); // Esto autocalculará la siguiente factura correlativa
             }
             catch (Exception ex)
             {
@@ -306,11 +366,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
         public void LimpiarCamposProducto()
         {
-            comboBox2.SelectedIndex = -1;
+           
             textBox4.Clear();
             textBox5.Clear();
             textBox6.Clear();
             textBox7.Clear();
+            comboBox2.SelectedIndex = -1;
         }
 
         public void ConfigurarControlesPorRol()
@@ -368,7 +429,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
 
         }
-
+      
         private void FrmFractura_Load(object sender, EventArgs e)
         {
 
@@ -424,18 +485,33 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 {
                     Factura facturaSeleccionada = TLista_Facturas.listaFacturas[index];
 
+                    // =========================================================================
+                    // BUSCAR EL NOMBRE DEL CLIENTE USANDO LA CÉDULA DE LA FACTURA
+                    // =========================================================================
+                    string nombreClienteComprobante = "Cliente General";
+                    if (TLista_Cliente.listaClientes != null)
+                    {
+                        var clienteEncontrado = TLista_Cliente.listaClientes.FirstOrDefault(c => c.Cedula == facturaSeleccionada.CedulaCliente);
+                        if (clienteEncontrado != null)
+                        {
+                            nombreClienteComprobante = $"{clienteEncontrado.Nombre} {clienteEncontrado.Apellido}";
+                        }
+                    }
+                    // =========================================================================
+
                     string detalle =
                         "========================================\n" +
                         "          COMPROBANTE DE FACTURA        \n" +
                         "========================================\n" +
                         $"Nº Factura: {facturaSeleccionada.NumFactura}\n" +
                         $"Fecha: {facturaSeleccionada.FechaEmision} | RUC: {facturaSeleccionada.Ruc}\n" +
-                        $"Cédula Cliente: {facturaSeleccionada.CedulaCliente}\n" +
+                        $"Cédula: {facturaSeleccionada.CedulaCliente}\n" +
+                        $"Cliente: {nombreClienteComprobante}\n" + // <--- ¡Aquí se muestra el nombre real!
                         $"Forma de Pago: {facturaSeleccionada.FormaPago}\n" +
                         "----------------------------------------\n" +
                         " DETALLE DE COMPRA:\n";
 
-                    // ESTE BUCLE ES EL QUE PINTA LOS PRODUCTOS EN EL MENSAJE
+                    // Bucle para pintar los productos
                     if (facturaSeleccionada.DetalleItems != null && facturaSeleccionada.DetalleItems.Count > 0)
                     {
                         foreach (var item in facturaSeleccionada.DetalleItems)

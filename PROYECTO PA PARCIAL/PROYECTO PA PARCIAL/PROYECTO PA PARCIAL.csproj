@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controlador\cLogin.cs" />
+    <Compile Include="Controlador\Global.cs" />
     <Compile Include="Controlador\TLista_Cliente.cs" />
     <Compile Include="Controlador\TLista_Facturas.cs" />
     <Compile Include="Controlador\TLista_ItemCarrito.cs" />
@@ -102,6 +103,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\TestSistema.cs" />
     <EmbeddedResource Include="Formulario\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +132,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Data\clientes.csv" />
+    <None Include="Data\facturas.csv" />
+    <None Include="Data\productos.csv" />
+    <None Include="Data\vendedores.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

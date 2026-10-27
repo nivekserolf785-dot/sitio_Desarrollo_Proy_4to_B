@@ -43,8 +43,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         }
 
         // Datos iniciales de prueba (22 productos)
-        public static void CargarDatos()
+        public void CargarDatos()
         {
+            // 1. Intentamos leer los productos directamente desde el archivo CSV en la carpeta Data
+            TLista_Productos.Leer();
+
+            // 2. Si el archivo está vacío o no tiene registros, inyectamos los 22 productos de prueba
             if (TLista_Productos.listaProductos.Count == 0)
             {
                 // Alimentos (Bolos)
@@ -74,6 +78,9 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 TLista_Productos.listaProductos.Add(new Producto("P020", "Enjuague Bucal 250ml", "Aseo personal", "Listerine", 3.80, 30, new DateTime(2027, 11, 25)));
                 TLista_Productos.listaProductos.Add(new Producto("P021", "Jabón de Tocador en Barra", "Aseo personal", "Heno de Pravia", 0.90, 90, new DateTime(2028, 8, 15)));
                 TLista_Productos.listaProductos.Add(new Producto("P022", "Bloqueador Solar FPS 50", "Aseo personal", "Banana Boat", 8.50, 15, new DateTime(2028, 3, 1)));
+
+                // 3. Guardamos automáticamente esos 22 productos en el archivo productos.csv
+                TLista_Productos.Guardar();
             }
         }
 
@@ -196,7 +203,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 {
                     if (!esModificacion)
                     {
-                        controlador.Insertar(obj); // Utiliza el método Insertar de TLista_Productos
+                        controlador.Insertar(obj);
                         MessageBox.Show("Producto ingresado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -204,6 +211,11 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                         controlador.Modificar(obj, obj.Codigo);
                         MessageBox.Show("Producto modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
+                    // ===================================================
+                    // ¡ESTA LÍNEA ES VITAL PARA ACTUALIZAR EL CSV!
+                    // ===================================================
+                    TLista_Productos.Guardar();
 
                     Listar();
                     Limpiar();
@@ -214,7 +226,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 MessageBox.Show("Error al guardar: " + ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         // Modificar
         public void Modificar()
         {
