@@ -21,6 +21,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             InitializeComponent();
             cargarComboSexo();
+           
         }
 
         public FrmClientes(string rol) // recibe el rol del usuario que inició sesión
@@ -39,7 +40,10 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             comboBox1.Items.Add("F");
             if (comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0;
         }
-
+        public void cargarDatos()
+        {
+            TLista_Cliente.Leer();
+        }
         // Datos iniciales cargados desde CSV o con los 10 registros de prueba por defecto
        
 
@@ -264,7 +268,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-           
+            cargarDatos();
             Listar();
             cargarComboSexo();
         }

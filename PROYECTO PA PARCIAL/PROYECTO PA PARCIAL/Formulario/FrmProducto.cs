@@ -23,6 +23,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             InitializeComponent();
             cargarComboCategoria();
+            
         }
 
         public FrmProducto(string rol)
