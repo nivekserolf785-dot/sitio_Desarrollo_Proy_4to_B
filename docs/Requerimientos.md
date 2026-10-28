@@ -1,10 +1,10 @@
-# 📑 Especificación de Requerimientos — Paradise Express
+#  Especificación de Requerimientos — Paradise Express
 
 Este documento detalla los requerimientos funcionales y no funcionales que definen el alcance, el comportamiento y los estándares técnicos del sistema de gestión comercial **Paradise Express**.
 
 ---
 
-## ⚙️ 1. Requerimientos Funcionales (RF)
+##  1. Requerimientos Funcionales (RF)
 
 Los requerimientos funcionales especifican las operaciones lógicas, los flujos de datos y los comportamientos que el sistema debe ejecutar de manera automatizada:
 
@@ -22,7 +22,7 @@ Los requerimientos funcionales especifican las operaciones lógicas, los flujos 
 
 ---
 
-## 🔒 2. Requerimientos No Funcionales (RNF)
+##  2. Requerimientos No Funcionales (RNF)
 
 Los requerimientos no funcionales establecen los atributos de calidad, restricciones arquitectónicas y criterios de rendimiento del software:
 
