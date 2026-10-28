@@ -16,12 +16,12 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         private string formaPago;
         private List<ItemCarrito> detalleItems = new List<ItemCarrito>();
 
-        // 1. Constructor vacío
+        
         public Factura()
         {
         }
 
-        // 2. Constructor antiguo de 6 parámetros (para compatibilidad al leer del CSV)
+       
         public Factura(string numFac, string rucVal, string cedCli, string fecEmi, double totFac, string forPag)
         {
             this.NumFactura = numFac;
@@ -33,7 +33,6 @@ namespace PROYECTO_PA_PARCIAL.Entidades
             this.DetalleItems = new List<ItemCarrito>(); // Lista vacía por defecto
         }
 
-        // 3. Constructor completo de 7 parámetros (para cuando se crea desde el carrito)
         public Factura(string numFac, string rucVal, string cedCli, string fecEmi, double totFac, string forPag, List<ItemCarrito> items)
         {
             this.NumFactura = numFac;
@@ -44,7 +43,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
             this.FormaPago = forPag;
             this.DetalleItems = items ?? new List<ItemCarrito>();
         }
-        // Propiedades públicas (PascalCase)
+        
         public string NumFactura { get => numFactura; set => numFactura = value; }
         public string Ruc { get => ruc; set => ruc = value; }
         public string CedulaCliente { get => cedulaCliente; set => cedulaCliente = value; }
@@ -52,15 +51,15 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         public double TotalFactura { get => totalFactura; set => totalFactura = value; }
         public string FormaPago { get => formaPago; set => formaPago = value; }
 
-        // Propiedad para la lista de productos asociados a esta factura
+      
         public List<ItemCarrito> DetalleItems { get => detalleItems; set => detalleItems = value; }
 
         public string GetFactura()
         {
-            // Cabecera básica
+           
             string datos = $"{this.NumFactura};{this.Ruc};{this.CedulaCliente};{this.FechaEmision};{this.TotalFactura};{this.FormaPago}";
 
-            // Serializamos los items del carrito si existen (Ej: ^Cod|Nom|Precio|Cant^Cod|Nom|Precio|Cant)
+           
             if (this.DetalleItems != null && this.DetalleItems.Count > 0)
             {
                 foreach (var item in this.DetalleItems)

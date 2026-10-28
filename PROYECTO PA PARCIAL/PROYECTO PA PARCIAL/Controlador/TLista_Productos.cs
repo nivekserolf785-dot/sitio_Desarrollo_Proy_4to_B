@@ -52,7 +52,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
 
             File.WriteAllLines(archivoCsv, lineas);
         }
-        // Este método permite obtener la cantidad total de productos registrados en la lista
+       
         public int Cantidad()
         {
             return listaProductos.Count;
@@ -63,8 +63,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
         {
             listaProductos.Clear();
         }
-
-        // Este método realiza una búsqueda secuencial utilizando el código del producto
         public int Localizar(string codigoProd)
         {
             int pos = -1;
@@ -80,7 +78,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             return pos;
         }
 
-        // Este método permite ingresar un nuevo producto validando que el código no esté repetido
         public void Insertar(Producto p)
         {
             int pos = Localizar(p.Codigo);
@@ -93,8 +90,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 throw new Exception("Producto ya agregado previamente: " + p.Codigo);
             }
         }
-
-        // Este método permite modificar un producto existente buscando su código y actualizando sus datos
         public void Modificar(Producto p, string codigoProd)
         {
             int pos = Localizar(codigoProd);
@@ -107,8 +102,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 throw new Exception("**No existe un producto registrado con el código ingresado:** " + codigoProd);
             }
         }
-
-        // Este método permite eliminar un producto de la lista mediante su código
         public void Eliminar(string codigoProd)
         {
             int pos = Localizar(codigoProd);
@@ -122,7 +115,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
         }
 
-        // Este método permite obtener un producto específico según su posición en la lista
         public Producto GetProducto(int posicion)
         {
             Producto p = null;
@@ -133,7 +125,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             return p;
         }
 
-        // Este método permite filtrar los productos escribiendo texto en un TextBox
         public List<Producto> BuscarProductos(string texto)
         {
             List<Producto> resultado = new List<Producto>();

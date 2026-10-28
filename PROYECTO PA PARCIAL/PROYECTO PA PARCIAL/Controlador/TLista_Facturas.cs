@@ -12,8 +12,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
     {
         public static List<Factura> listaFacturas = new List<Factura>();
         public static string archivoCsv = Global.GetPath() + "facturas.csv";
-
-        // --- MÉTODOS DE ARCHIVO CSV ---
         public static void Guardar()
         {
             try
@@ -31,7 +29,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 throw new Exception("Error al guardar el archivo CSV de facturas: " + ex.Message);
             }
         }
-
         public static void Leer()
         {
             try
@@ -94,13 +91,11 @@ namespace PROYECTO_PA_PARCIAL.Controlador
         {
             return listaFacturas.Count;
         }
-
         public void Limpiar()
         {
             listaFacturas.Clear();
         }
 
-       
         public Factura GetFactura(int posicion)
         {
             if (posicion >= 0 && posicion < listaFacturas.Count)
@@ -109,7 +104,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
             return null;
         }
-
       
         public int Localizar(string numFactura)
         {
@@ -128,7 +122,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             int pos = Localizar(f.NumFactura);
             if (pos == -1)
             {
-                // Valida que el cliente exista usando el controlador TLista_Cliente
+             
                 TLista_Cliente validadorCliente = new TLista_Cliente();
                 if (validadorCliente.Localizar(f.CedulaCliente) == -1)
                 {
@@ -147,7 +141,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 throw new Exception("** La factura con número " + f.NumFactura + " ya existe **");
             }
         }
-
         public void Modificar(Factura f, string numFactura)
         {
             int pos = Localizar(numFactura);
@@ -171,8 +164,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 throw new Exception("** No existe factura con número: " + numFactura + " **");
             }
         }
-
-        // Este método permite eliminar una factura de la lista mediante su número
+     
         public void Eliminar(string numFactura)
         {
             int pos = Localizar(numFactura);

@@ -24,7 +24,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
            
         }
 
-        public FrmClientes(string rol) // recibe el rol del usuario que inició sesión
+        public FrmClientes(string rol)
         {
             InitializeComponent();
             this.rolRecibido = rol;
@@ -32,7 +32,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             cargarComboSexo();
         }
 
-        // Carga del ComboBox de Sexo ("M" y "F")
+       
         public void cargarComboSexo()
         {
             comboBox1.Items.Clear();
@@ -44,10 +44,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             TLista_Cliente.Leer();
         }
-        // Datos iniciales cargados desde CSV o con los 10 registros de prueba por defecto
+        
        
-
-        // Mostrar lista en el DataGridView
         public void Listar()
         {
             dataGridView1.DataSource = null;
@@ -88,7 +86,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             {
                 esModificacion = true;
                 textBox1.Text = cli.Cedula;
-                textBox1.Enabled = false; // Bloquea la cédula al editar
+                textBox1.Enabled = false; 
 
                 textBox2.Text = cli.Nombre;
                 textBox3.Text = cli.Apellido;
@@ -137,7 +135,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                         MessageBox.Show("Cliente modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
-                    // Guardar en el archivo CSV de forma estática
+                   
                     TLista_Cliente.Guardar();
 
                     Listar();
@@ -262,7 +260,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             if (rolRecibido == "ROL VENDEDOR")
             {
-                button3.Enabled = false; // Deshabilitar eliminar para vendedor
+                button3.Enabled = false; 
             }
         }
 

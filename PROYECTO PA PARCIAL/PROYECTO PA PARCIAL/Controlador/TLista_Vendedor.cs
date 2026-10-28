@@ -42,7 +42,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             List<string> lineas = new List<string>();
             foreach (var v in listaVendedores)
             {
-                // Aprovechamos el método GetVendedor() que ya tiene su entidad
+                
                 lineas.Add(v.GetVendedor().TrimEnd(';'));
             }
             File.WriteAllLines(archivoCsv, lineas);

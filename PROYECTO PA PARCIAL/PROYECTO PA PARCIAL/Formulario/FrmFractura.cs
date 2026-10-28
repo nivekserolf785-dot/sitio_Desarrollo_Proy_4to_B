@@ -36,13 +36,13 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             InicializarDatos();
             ConfigurarControlesPorRol();
         }
-        // Carga tradicional de ComboBox mediante bucles directos
+      
         public void CargarCombos()
         {
             comboBox1.Items.Clear();
             comboBox2.Items.Clear();
 
-            // 2. Cargar Nombre Completo de los clientes desde la lista ya leída
+         
             if (TLista_Cliente.listaClientes != null)
             {
                 foreach (var cliente in TLista_Cliente.listaClientes)
@@ -51,7 +51,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 }
             }
 
-            // 3. Cargar productos desde la lista ya leída
+           
             if (TLista_Productos.listaProductos != null)
             {
                 foreach (var producto in TLista_Productos.listaProductos)
@@ -60,7 +60,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 }
             }
 
-            // 4. Cargar Forma de Pago en comboBox3
+           
             comboBox3.Items.Clear();
             comboBox3.Items.Add("Efectivo");
             comboBox3.Items.Add("Transferencia");
@@ -72,24 +72,15 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             dataGridView2.DataSource = null;
             dataGridView2.DataSource = TLista_Facturas.listaFacturas.ToList();
         }
-        // Inicialización de datos y campos en orden estricto
+       
         public void InicializarDatos()
         {
             textBox1.Text = DateTime.Now.ToShortDateString();
             textBox2.Text = !string.IsNullOrEmpty(rolRecibido) ? rolRecibido : "Administrador";
-
-            // =========================================================================
-            // 1. LEEMOS EL CSV DE FACTURAS PRIMERO (¡Esto faltaba para que aparezcan en dgv2!)
-            // =========================================================================
             TLista_Facturas.Leer();
-
-            // =========================================================================
-            // 2. CÁLCULO AUTOMÁTICO DEL NÚMERO DE FACTURA SECUENCIAL DESDE EL CSV
-            // =========================================================================
             int siguienteNumero = 1;
             if (TLista_Facturas.listaFacturas != null && TLista_Facturas.listaFacturas.Count > 0)
             {
-                // Intenta obtener el número de la última factura registrada y sumarle 1
                 var ultimaFactura = TLista_Facturas.listaFacturas.LastOrDefault();
                 if (ultimaFactura != null && int.TryParse(ultimaFactura.NumFactura, out int numUltimo))
                 {
@@ -100,11 +91,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                     siguienteNumero = TLista_Facturas.listaFacturas.Count + 1;
                 }
             }
-
-            textBox3.Text = siguienteNumero.ToString("D6"); // Formato 000001, 000002...
+            textBox3.Text = siguienteNumero.ToString("D6"); 
             textBox3.Enabled = false;
-            // =========================================================================
-
             LimpiarCamposProducto();
             textBox8.Text = "0.00";
             textBox9.Text = "0.00";
@@ -112,25 +100,22 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
             TLista_ItemCarrito.listaCarrito.Clear();
             Listar();
-            ListarFacturas(); // ¡Aquí ya se pintarán todas las facturas guardadas en el dataGridView2!
+            ListarFacturas(); 
         }
 
-        // Mostrar lista en el DataGridView superior (carrito)
+        
         public void Listar()
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = TLista_ItemCarrito.listaCarrito.ToList();
         }
-        // Mostrar lista en el DataGridView superior (carrito)
-
-
-        // Autocompletar código y precio al seleccionar un producto en el comboBox2
+       
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        // Recalcular subtotal del ítem cuando cambia la cantidad en textBox6
+        
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
             CalcularSubtotalItem();
@@ -149,10 +134,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             }
         }
 
-
-        // --- MÉTODOS DE ACCIÓN PRINCIPALES ---
-
-        // Button 1: Insertar al carrito (dataGridView1)
         public void AgregarItem()
         {
             int index = comboBox2.SelectedIndex;
@@ -196,8 +177,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             ActualizarTotalesGenerales();
             LimpiarCamposProducto();
         }
-
-        // Button 2: Modificar detalle del carrito usando el textBox6 (Cantidad)
         public void ModificarItem()
         {
             if (dataGridView1.CurrentRow != null)
@@ -207,15 +186,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 {
                     ItemCarrito item = TLista_ItemCarrito.listaCarrito[index];
 
-                    // 1. Validar nueva cantidad
                     if (!int.TryParse(textBox6.Text.Trim(), out int nuevaCantidad) || nuevaCantidad <= 0)
                     {
                         MessageBox.Show("Ingrese una cantidad válida para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBox6.Focus();
                         return;
                     }
-
-                    // 2. Validar nuevo precio (por si se modificó en el textBox5)
                     if (!double.TryParse(textBox5.Text.Trim(), out double nuevoPrecio) || nuevoPrecio < 0)
                     {
                         MessageBox.Show("Ingrese un precio válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -230,12 +206,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                         return;
                     }
 
-                    // Respaldo de seguridad del cliente
+                 
                     string clienteActual = comboBox1.SelectedItem != null ? comboBox1.SelectedItem.ToString() : null;
 
-                    // Actualizamos tanto la cantidad como el precio unitario
+                    
                     item.Cantidad = nuevaCantidad;
-                    item.PrecioUnitario = nuevoPrecio; // <-- ¡Actualiza el precio en el ítem del carrito!
+                    item.PrecioUnitario = nuevoPrecio; 
 
                     Listar();
                     ActualizarTotalesGenerales();
@@ -255,8 +231,8 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             }
         }
 
-        // Button 6: Eliminar un ítem del carrito
-        public void EliminarItem()
+    
+        public void EliminarItem()// del carrito
         {
             if (dataGridView1.CurrentRow != null)
             {
@@ -274,7 +250,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 MessageBox.Show("Seleccione un producto de la tabla superior para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        // Button 3: Guardar Factura hacia el dataGridView2
         public void GuardarFactura()
         {
             if (TLista_ItemCarrito.listaCarrito.Count == 0)
@@ -282,10 +257,6 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 MessageBox.Show("El carrito está vacío. Agregue productos para registrar la factura.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // =========================================================================
-            // BLINDAJE DE CLIENTE: Comprobamos el SelectedIndex O el Text del ComboBox
-            // =========================================================================
             string nombreSeleccionado = "";
             if (comboBox1.SelectedItem != null)
             {
@@ -310,10 +281,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                 string rucEmpresa = "0705015865001";
                 string fecha = textBox1.Text.Trim();
                 string formaPago = comboBox3.SelectedItem != null ? comboBox3.SelectedItem.ToString() : "Efectivo";
-
                 double total = double.TryParse(textBox10.Text.Trim(), out double t) ? t : 0.0;
-
-                // Buscamos al cliente usando el nombre que capturamos de forma segura
                 Cliente clienteEncontrado = TLista_Cliente.listaClientes.FirstOrDefault(c => c.NombreCompleto.Equals(nombreSeleccionado, StringComparison.OrdinalIgnoreCase));
 
                 if (clienteEncontrado == null)
@@ -340,23 +308,23 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                     dataGridView2.CurrentCell = dataGridView2.Rows[ultimaFila].Cells[0];
                 }
 
-                InicializarDatos(); // Esto autocalculará la siguiente factura correlativa
+                InicializarDatos(); 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar la factura: " + ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // Actualizar subtotales generales (textBox8, textBox9, textBox10)
+       
         public void ActualizarTotalesGenerales()
         {
             double subtotal = TLista_ItemCarrito.listaCarrito.Sum(x => x.Subtotal);
             double iva = subtotal * 0.15; // 15% IVA
             double total = subtotal + iva;
 
-            textBox8.Text = subtotal.ToString("0.00"); // textBox8: Subtotal general
-            textBox9.Text = iva.ToString("0.00");      // textBox9: IVA 15%
-            textBox10.Text = total.ToString("0.00");   // textBox10: Total final
+            textBox8.Text = subtotal.ToString("0.00"); 
+            textBox9.Text = iva.ToString("0.00");      
+            textBox10.Text = total.ToString("0.00"); 
         }
 
         public void LimpiarCamposProducto()
@@ -373,53 +341,51 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         {
             if (rolRecibido == "ROL VENDEDOR")
             {
-                // Configuraciones de permisos adicionales si se requieren
+                
             }
         }
 
 
-        // --- EVENTOS DE LOS BOTONES ---
+       
 
-        // Button 1: Insertar al carrito
+       
         private void button1_Click(object sender, EventArgs e)
         {
             try { AgregarItem(); }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        // Button 2: Modificar detalle del carrito
+     
         private void button2_Click(object sender, EventArgs e)
         {
             try { ModificarItem(); }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        // Button 3: Guardar Factura
+     
         private void button3_Click(object sender, EventArgs e)
         {
             try { GuardarFactura(); }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        // Button 4: (Opcional o libre)
+       
         private void button4_Click(object sender, EventArgs e)
         {
         }
 
-        // Button 5: Salir / Cerrar formulario
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Button 6: Eliminar ítem del carrito (papelera)
+        
         private void button6_Click(object sender, EventArgs e)
         {
             try { EliminarItem(); }
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        // Doble clic en la tabla inferior (dataGridView2) para ver el detalle impreso de la factura
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -748,6 +714,11 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             {
                 MessageBox.Show("Error al mostrar la vista previa: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            EliminarItem();
         }
     }
 }

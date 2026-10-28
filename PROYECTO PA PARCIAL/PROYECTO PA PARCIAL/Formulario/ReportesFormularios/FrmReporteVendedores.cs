@@ -23,9 +23,9 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
         {
             try
             {
-                // 1. Leemos los datos actualizados del CSV de vendedores
+                
                 TLista_Vendedor.Leer();
-                var lista = TLista_Vendedor.listaVendedores; // Asegúrese de que su lista estática se llame así en su controlador
+                var lista = TLista_Vendedor.listaVendedores; 
 
                 if (lista == null || lista.Count == 0)
                 {
@@ -33,12 +33,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
                     return;
                 }
 
-                // 2. Cargamos la tabla por defecto
+               
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = lista;
                 EstilizarTabla();
 
-                // 3. Configuramos el gráfico estadístico por defecto (chart1) para vendedores
+               
                 ConfigurarGraficoVendedores(lista);
             }
             catch (Exception ex)
@@ -52,19 +52,19 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
             chart1.Series.Clear();
             chart1.ChartAreas.Clear();
 
-            // Área del gráfico
+           
             ChartArea areaGrafico = new ChartArea("AreaPrincipal");
             areaGrafico.BackColor = Color.White;
             areaGrafico.AxisX.MajorGrid.LineColor = Color.LightGray;
             areaGrafico.AxisY.MajorGrid.LineColor = Color.LightGray;
             chart1.ChartAreas.Add(areaGrafico);
 
-            // Serie de datos (Gráfico de barras)
+           
             Series serie = new Series("Vendedores");
             serie.ChartType = SeriesChartType.Column;
             serie.IsValueShownAsLabel = true;
 
-            // Usamos 'ciudadv' tal como está definido en su entidad Vendedor
+           
             var vendedoresPorCiudad = lista.GroupBy(v => v.Ciudadv)
                                 .Select(g => new { Ciudad = g.Key, Cantidad = g.Count() });
             foreach (var item in vendedoresPorCiudad)
@@ -75,7 +75,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
             serie.Color = Color.FromArgb(230, 126, 34); // Naranja corporativo profesional
             chart1.Series.Add(serie);
 
-            // Título del gráfico
+            
             chart1.Titles.Clear();
             chart1.Titles.Add("Distribución del Personal de Ventas por Ciudad - Paradise Express");
             chart1.Titles[0].Font = new Font("Segoe UI", 11, FontStyle.Bold);
@@ -84,7 +84,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
 
         private void EstilizarTabla()
         {
-            // Estilo visual limpio para dataGridView1
+          
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 247, 250);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

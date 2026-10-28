@@ -21,23 +21,22 @@ namespace PROYECTO_PA_PARCIAL.Formulario
         public Frm_Inicio(string rol)
         {
             InitializeComponent();
-            this.rolUsuario = rol;// si no se pone el this no se puede acceder a la variable rolUsuario en otros métodos de la clase
+            this.rolUsuario = rol;
         }
         private void AbrirFormularioEnPanel(Form formHijo)
         {
-            // Si ya hay un formulario abierto dentro del panel, lo removemos para liberar memoria
+           
             if (panelContenedor.Controls.Count > 0)
             {
                 panelContenedor.Controls[0].Dispose();
                 panelContenedor.Controls.Clear();
             }
 
-            // Configuramos el formulario hijo para que se comporte como un control interno
             formHijo.TopLevel = false;
             formHijo.FormBorderStyle = FormBorderStyle.None;
-            formHijo.Dock = DockStyle.Fill; // Hace que se adapte perfectamente al tamaño del panel
+            formHijo.Dock = DockStyle.Fill;
 
-            // Lo agregamos al panel contenedor del formulario principal y lo mostramos
+          
             panelContenedor.Controls.Add(formHijo);
             panelContenedor.Tag = formHijo;
             formHijo.Show();
@@ -182,5 +181,9 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             AbrirFormularioEnPanel(frm);
         }
 
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     } 
 }    

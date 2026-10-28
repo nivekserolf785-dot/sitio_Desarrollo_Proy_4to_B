@@ -23,7 +23,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
         {
             try
             {
-                // 1. Leemos los datos actualizados del CSV de clientes
+                
                 TLista_Cliente.Leer();
                 var lista = TLista_Cliente.listaClientes;
 
@@ -33,12 +33,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
                     return;
                 }
 
-                // 2. Cargamos la tabla por defecto
+                
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = lista;
                 EstilizarTabla();
 
-                // 3. Configuramos el gráfico estadístico por defecto (chart1)
+               
                 ConfigurarGraficoClientes(lista);
             }
             catch (Exception ex)
@@ -49,23 +49,23 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
 
         private void ConfigurarGraficoClientes(System.Collections.Generic.List<Cliente> lista)
         {
-            // Usamos chart1 que es el nombre por defecto del componente
+            
             chart1.Series.Clear();
             chart1.ChartAreas.Clear();
 
-            // Área del gráfico
+            
             ChartArea areaGrafico = new ChartArea("AreaPrincipal");
             areaGrafico.BackColor = Color.White;
             areaGrafico.AxisX.MajorGrid.LineColor = Color.LightGray;
             areaGrafico.AxisY.MajorGrid.LineColor = Color.LightGray;
             chart1.ChartAreas.Add(areaGrafico);
 
-            // Serie de datos (Gráfico de barras)
+          
             Series serie = new Series("Clientes");
             serie.ChartType = SeriesChartType.Column;
             serie.IsValueShownAsLabel = true;
 
-            // Agrupamos los clientes por ciudad usando LINQ
+            
             var clientesPorCiudad = lista.GroupBy(c => c.Ciudad)
                                          .Select(g => new { Ciudad = g.Key, Cantidad = g.Count() });
 
@@ -77,7 +77,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
             serie.Color = Color.FromArgb(41, 128, 185); // Azul profesional
             chart1.Series.Add(serie);
 
-            // Título del gráfico
+           
             chart1.Titles.Clear();
             chart1.Titles.Add("Distribución de Clientes por Ciudad - Paradise Express");
             chart1.Titles[0].Font = new Font("Segoe UI", 11, FontStyle.Bold);
@@ -86,7 +86,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
 
         private void EstilizarTabla()
         {
-            // Estilo visual limpio para dataGridView1
+            
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 247, 250);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

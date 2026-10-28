@@ -10,17 +10,14 @@ namespace PROYECTO_PA_PARCIAL.Controlador
     public class TLista_ItemCarrito
     {
         public static List<ItemCarrito> listaCarrito = new List<ItemCarrito>();
-
         public int Cantidad()
         {
             return listaCarrito.Count;
         }
-
         public void Limpiar()
         {
             listaCarrito.Clear();
         }
-
         public int Localizar(string codigoProd)
         {
             int pos = -1;
@@ -35,8 +32,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
             return pos;
         }
-
-        // Método para insertar o acumular cantidad si ya existe
         public void Insertar(Producto prod, int cantidad)
         {
             if (prod == null)
@@ -70,7 +65,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 listaCarrito.Add(nuevo);
             }
         }
-
         public void Eliminar(string codigoProd)
         {
             int pos = Localizar(codigoProd);
@@ -83,7 +77,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 throw new Exception("Seleccione un producto válido de la tabla superior para eliminar.");
             }
         }
-
         public ItemCarrito GetItem(int posicion)
         {
             ItemCarrito item = null;
@@ -93,7 +86,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
             return item;
         }
-
         public double CalcularSubtotalGeneral()
         {
             double sub = 0;
@@ -108,7 +100,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
         {
             return CalcularSubtotalGeneral() * 0.15; // 15% IVA
         }
-
         public double CalcularTotalFinal()
         {
             return CalcularSubtotalGeneral() + CalcularIva();

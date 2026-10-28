@@ -8,8 +8,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
 {
     public class cLogin
     {
-        // Este método permite validar las credenciales de acceso comparando la clave ingresada 
-        // y el rol seleccionado en el formulario (por ejemplo, para GERENTE o VENDEDOR)
+       
         public bool Validar(string claveIngresada, string rolSeleccionado)
         {
             if (rolSeleccionado == "GERENTE" && claveIngresada == "Emperador1996#")

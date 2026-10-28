@@ -40,7 +40,6 @@
             this.reporteVendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stockProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mejorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +48,7 @@
             this.porcentajeDeComprasPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porcentajeComprasFemeninoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porcentajeComprasMasculinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelContenedor = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,12 +130,6 @@
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
-            // panelContenedor
-            // 
-            this.panelContenedor.BackColor = System.Drawing.Color.Gray;
-            resources.ApplyResources(this.panelContenedor, "panelContenedor");
-            this.panelContenedor.Name = "panelContenedor";
-            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -190,6 +184,13 @@
             this.porcentajeComprasMasculinoToolStripMenuItem.Name = "porcentajeComprasMasculinoToolStripMenuItem";
             resources.ApplyResources(this.porcentajeComprasMasculinoToolStripMenuItem, "porcentajeComprasMasculinoToolStripMenuItem");
             this.porcentajeComprasMasculinoToolStripMenuItem.Click += new System.EventHandler(this.porcentajeComprasMasculinoToolStripMenuItem_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.panelContenedor, "panelContenedor");
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // Frm_Inicio
             // 
