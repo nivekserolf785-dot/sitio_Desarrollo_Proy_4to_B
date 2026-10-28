@@ -258,5 +258,35 @@
   <ItemGroup>
     <None Include="Resources\FONDO %281%29.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removebg-preview %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removebg-preview %284%29 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nueva-cuenta %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ícono de edición con flecha circular y lápiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ícono de edición con lápiz azul %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contenedor-de-basura %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4c669403-ab9f-48b9-b028-39e7a323bedd %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_21411 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_icon-icons.com_73705 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

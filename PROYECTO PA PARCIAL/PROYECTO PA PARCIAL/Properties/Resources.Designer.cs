@@ -63,6 +63,16 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4c669403_ab9f_48b9_b028_39e7a323bedd__1_ {
+            get {
+                object obj = ResourceManager.GetObject("4c669403-ab9f-48b9-b028-39e7a323bedd (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Agregar__2_ {
             get {
                 object obj = ResourceManager.GetObject("Agregar (2)", resourceCulture);
@@ -76,6 +86,46 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         internal static System.Drawing.Bitmap Agregar__2_1 {
             get {
                 object obj = ResourceManager.GetObject("Agregar (2)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b4167f74_40d1_49ff_b6e1_d398f861c168__1_ {
+            get {
+                object obj = ResourceManager.GetObject("b4167f74-40d1-49ff-b6e1-d398f861c168 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b4167f74_40d1_49ff_b6e1_d398f861c168__2_ {
+            get {
+                object obj = ResourceManager.GetObject("b4167f74-40d1-49ff-b6e1-d398f861c168 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b4167f74_40d1_49ff_b6e1_d398f861c168__2___2_ {
+            get {
+                object obj = ResourceManager.GetObject("b4167f74-40d1-49ff-b6e1-d398f861c168 (2) (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap contenedor_de_basura__1_ {
+            get {
+                object obj = ResourceManager.GetObject("contenedor-de-basura (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +173,62 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gemini_2_5_flash_image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad_0_removebg_preview__1_ {
+            get {
+                object obj = ResourceManager.GetObject("gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removeb" +
+                        "g-preview (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gemini_2_5_flash_image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad_0_removebg_preview__3_ {
+            get {
+                object obj = ResourceManager.GetObject("gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removeb" +
+                        "g-preview (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gemini_2_5_flash_image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad_0_removebg_preview__4___1_ {
+            get {
+                object obj = ResourceManager.GetObject("gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removeb" +
+                        "g-preview (4) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GUARDAR {
             get {
                 object obj = ResourceManager.GetObject("GUARDAR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ícono_de_edición_con_flecha_circular_y_lápiz {
+            get {
+                object obj = ResourceManager.GetObject("Ícono de edición con flecha circular y lápiz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ícono_de_edición_con_lápiz_azul__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Ícono de edición con lápiz azul (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +326,26 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nueva_cuenta__1_ {
+            get {
+                object obj = ResourceManager.GetObject("nueva-cuenta (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Print_icon_icons_com_73705__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Print_icon-icons.com_73705 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap productos {
             get {
                 object obj = ResourceManager.GetObject("productos", resourceCulture);
@@ -236,6 +359,16 @@ namespace PROYECTO_PA_PARCIAL.Properties {
         internal static System.Drawing.Bitmap Reporte {
             get {
                 object obj = ResourceManager.GetObject("Reporte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap save_21411__1_ {
+            get {
+                object obj = ResourceManager.GetObject("save_21411 (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
