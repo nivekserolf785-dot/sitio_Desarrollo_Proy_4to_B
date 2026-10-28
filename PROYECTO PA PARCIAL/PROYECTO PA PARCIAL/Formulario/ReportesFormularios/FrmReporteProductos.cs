@@ -23,9 +23,9 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
         {
             try
             {
-                // 1. Leemos los datos actualizados del CSV de productos
+             
                 TLista_Productos.Leer();
-                var lista = TLista_Productos.listaProductos; // Asumiendo que su lista estática se llama así
+                var lista = TLista_Productos.listaProductos; 
 
                 if (lista == null || lista.Count == 0)
                 {
@@ -33,12 +33,11 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
                     return;
                 }
 
-                // 2. Cargamos la tabla por defecto
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = lista;
                 EstilizarTabla();
 
-                // 3. Configuramos el gráfico estadístico por defecto (chart1) para productos
+            
                 ConfigurarGraficoProductos(lista);
             }
             catch (Exception ex)
@@ -49,24 +48,24 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
 
         private void ConfigurarGraficoProductos(System.Collections.Generic.List<Producto> lista)
         {
-            // Usamos chart1 que es el nombre por defecto del componente
+           
             chart1.Series.Clear();
             chart1.ChartAreas.Clear();
 
-            // Área del gráfico
+           
             ChartArea areaGrafico = new ChartArea("AreaPrincipal");
             areaGrafico.BackColor = Color.White;
             areaGrafico.AxisX.MajorGrid.LineColor = Color.LightGray;
             areaGrafico.AxisY.MajorGrid.LineColor = Color.LightGray;
             chart1.ChartAreas.Add(areaGrafico);
 
-            // Serie de datos (Gráfico de barras)
+          
             Series serie = new Series("Productos");
             serie.ChartType = SeriesChartType.Column;
             serie.IsValueShownAsLabel = true;
 
-            // Agrupamos los productos por categoría (o ajusté la propiedad según su entidad Producto, ej: Categoria o Stock)
-            var productosPorCategoria = lista.GroupBy(p => p.Categoria) // Cambie 'Categoria' si su atributo se llama distinto en la Entidad Producto
+            
+            var productosPorCategoria = lista.GroupBy(p => p.Categoria) 
                                              .Select(g => new { Categoria = g.Key, Cantidad = g.Count() });
 
             foreach (var item in productosPorCategoria)
@@ -74,10 +73,10 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
                 serie.Points.AddXY(string.IsNullOrEmpty(item.Categoria) ? "General" : item.Categoria, item.Cantidad);
             }
 
-            serie.Color = Color.FromArgb(39, 174, 96); // Verde profesional distintivo para productos/inventario
+            serie.Color = Color.FromArgb(39, 174, 96);
             chart1.Series.Add(serie);
 
-            // Título del gráfico
+           
             chart1.Titles.Clear();
             chart1.Titles.Add("Inventario de Productos por Categoría - Paradise Express");
             chart1.Titles[0].Font = new Font("Segoe UI", 11, FontStyle.Bold);
@@ -86,7 +85,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
 
         private void EstilizarTabla()
         {
-            // Estilo visual limpio para dataGridView1
+          
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 247, 250);
             dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

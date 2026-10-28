@@ -16,7 +16,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
         private double stock;
         private DateTime fechaCaducidad;
 
-        // Constructor vacío
+  
         public Producto()
         { }
         public Producto(string codigo, string nombre, string categoria, string marca, double precio, double stock, DateTime fechaCaducidad)

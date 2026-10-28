@@ -13,7 +13,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
     
         public static List<Cliente> listaClientes = new List<Cliente>();
         public static string archivoCsv = Global.GetPath() + "clientes.csv";
-        // --- MÉTODOS DE ARCHIVO CSV ---
+       
         public static void Guardar()
         {
             try
@@ -22,7 +22,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                 {
                     foreach (var c in listaClientes)
                     {
-                        // Usamos el método GetCliente() que ya tiene en su entidad
+                        
                         sw.WriteLine(c.GetCliente());
                     }
                 }
@@ -48,7 +48,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                             string[] partes = linea.Split(';');
                             if (partes.Length >= 8)
                             {
-                                // Asumiendo formato: Cedula;Nombre;Apellido;Sexo;Celular;Direccion;Ciudad;Correo
+                                
                                 Cliente c = new Cliente(
                                     partes[0],
                                     partes[1],
@@ -106,7 +106,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
         }
 
-        // Este método permite modificar un cliente existente buscando su cédula y actualizando sus campos con un botón
+        
         public void Modificar(Cliente c, string cedula)
         {
             int pos = Localizar(cedula);
@@ -120,7 +120,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
         }
 
-        // Este método permite eliminar un cliente de la lista mediante un botón y su número de cédula
         public void Eliminar(string cedula)
         {
             int pos = Localizar(cedula);
@@ -134,7 +133,6 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             }
         }
 
-        // Este método permite obtener un cliente específico según su posición al hacer clic en una fila del DataGridView
         public Cliente GetCliente(int posicion)
         {
             Cliente c = null;
@@ -145,7 +143,7 @@ namespace PROYECTO_PA_PARCIAL.Controlador
             return c;
         }
 
-        // Este método permite escribir texto en un TextBox y filtrar los clientes que coincidan en cédula, nombre o ciudad
+      
         public List<Cliente> BuscarClientes(string texto)
         {
             List<Cliente> resultado = new List<Cliente>();

@@ -23,9 +23,9 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
         {
             try
             {
-                // 1. Leemos los datos del CSV de facturas
-                TLista_Facturas.Leer(); // Asegúrese de que su método de lectura se llame así en su controlador
-                var lista = TLista_Facturas.listaFacturas; // Ajuste el nombre de su lista estática si difiere
+               
+                TLista_Facturas.Leer(); 
+                var lista = TLista_Facturas.listaFacturas; 
 
                 if (lista == null || lista.Count == 0)
                 {
@@ -33,12 +33,11 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
                     return;
                 }
 
-                // 2. Cargamos la tabla por defecto
+              
                 dataGridView1.DataSource = null;
                 dataGridView1.DataSource = lista;
                 EstilizarTabla();
 
-                // 3. Configuramos el gráfico estadístico (chart1)
                 ConfigurarGraficoFacturas(lista);
             }
             catch (Exception ex)
@@ -62,7 +61,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
             serie.ChartType = SeriesChartType.Column;
             serie.IsValueShownAsLabel = true;
 
-            // Agrupamos por fecha, cédula del cliente o estado según prefiera
+           
             var facturasPorFecha = lista.GroupBy(f => f.FechaEmision)
                                .Select(g => new { Fecha = g.Key, Cantidad = g.Count() });
 
@@ -71,7 +70,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario.ReportesFormularios
                 serie.Points.AddXY(string.IsNullOrEmpty(item.Fecha) ? "General" : item.Fecha, item.Cantidad);
             }
 
-            serie.Color = Color.FromArgb(142, 68, 173); // Morado ejecutivo para transacciones/facturación
+            serie.Color = Color.FromArgb(142, 68, 173); 
             chart1.Series.Add(serie);
 
             chart1.Titles.Clear();

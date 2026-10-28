@@ -9,7 +9,7 @@ namespace PROYECTO_PA_PARCIAL.Entidades
     public class Login
     {
         private string clave;
-        private string rol; // GERENTE, VENDEDOR
+        private string rol; 
 
         public string Clave { get => clave; set => clave = value; }
         public string Rol { get => rol; set => rol = value; }
