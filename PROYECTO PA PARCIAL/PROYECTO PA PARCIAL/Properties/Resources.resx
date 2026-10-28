@@ -154,9 +154,6 @@
   <data name="limpiar-modified (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\limpiar-modified (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b4167f74-40d1-49ff-b6e1-d398f861c168 (2) (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b4167f74-40d1-49ff-b6e1-d398f861c168 (2) (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="save_21411 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_21411 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,6 +166,9 @@
   <data name="Lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lupa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="b4167f74-40d1-49ff-b6e1-d398f861c168 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b4167f74-40d1-49ff-b6e1-d398f861c168 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="vendedor-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vendedor-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,6 +180,9 @@
   </data>
   <data name="gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removebg-preview (4) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gemini-2.5-flash-image_quiero_hacer_esta_imagen_de_logo_de_alta_calidad-0-removebg-preview (4) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logologin-modified" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logologin-modified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="jonakoh-_-NPDRGf0w1lw-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_3237472 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +199,8 @@
   <data name="Agregar (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Agregar (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logologin-modified" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logologin-modified.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b4167f74-40d1-49ff-b6e1-d398f861c168 (2) (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b4167f74-40d1-49ff-b6e1-d398f861c168 (2) (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="contenedor-de-basura (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\contenedor-de-basura (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +214,7 @@
   <data name="productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\productos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b4167f74-40d1-49ff-b6e1-d398f861c168 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b4167f74-40d1-49ff-b6e1-d398f861c168 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logologin-modified_resized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logologin-modified_resized.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

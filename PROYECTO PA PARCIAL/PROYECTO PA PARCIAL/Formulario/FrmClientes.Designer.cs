@@ -56,11 +56,13 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -303,18 +305,18 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources._4c669403_ab9f_48b9_b028_39e7a323bedd__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(766, 499);
+            this.pictureBox4.Location = new System.Drawing.Point(763, 497);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(52, 65);
+            this.pictureBox4.Size = new System.Drawing.Size(52, 59);
             this.pictureBox4.TabIndex = 27;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.contenedor_de_basura__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(517, 497);
+            this.pictureBox3.Location = new System.Drawing.Point(509, 493);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(70, 72);
+            this.pictureBox3.Size = new System.Drawing.Size(70, 63);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 26;
             this.pictureBox3.TabStop = false;
@@ -322,18 +324,18 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.Ícono_de_edición_con_lápiz_azul__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(259, 502);
+            this.pictureBox2.Location = new System.Drawing.Point(259, 499);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(73, 66);
+            this.pictureBox2.Size = new System.Drawing.Size(73, 57);
             this.pictureBox2.TabIndex = 25;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.nueva_cuenta__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 499);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 497);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(78, 68);
+            this.pictureBox1.Size = new System.Drawing.Size(78, 60);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
@@ -350,12 +352,22 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.logologin_modified_resized;
+            this.pictureBox5.Location = new System.Drawing.Point(740, 91);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(184, 151);
+            this.pictureBox5.TabIndex = 28;
+            this.pictureBox5.TabStop = false;
+            // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(980, 581);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -393,6 +405,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +441,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

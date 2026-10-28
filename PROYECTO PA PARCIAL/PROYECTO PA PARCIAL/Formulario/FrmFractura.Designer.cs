@@ -286,7 +286,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(750, 52);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 22);
             this.textBox1.TabIndex = 36;
@@ -294,7 +294,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(200, 81);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(132, 22);
             this.textBox3.TabIndex = 37;
@@ -302,7 +302,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(200, 195);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 38;
@@ -310,7 +310,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(200, 234);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(132, 22);
             this.textBox5.TabIndex = 39;
@@ -318,7 +318,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(200, 271);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(132, 22);
             this.textBox6.TabIndex = 40;
@@ -326,7 +326,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(200, 306);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(132, 22);
             this.textBox7.TabIndex = 41;
@@ -334,7 +334,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(153, 497);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(4);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(132, 22);
             this.textBox8.TabIndex = 42;
@@ -342,7 +342,7 @@
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(153, 534);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(4);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(132, 22);
             this.textBox9.TabIndex = 43;
@@ -350,7 +350,7 @@
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(153, 571);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(4);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(201, 22);
             this.textBox10.TabIndex = 44;
@@ -378,10 +378,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(320, 399);
+            this.button2.Location = new System.Drawing.Point(320, 408);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 86);
+            this.button2.Size = new System.Drawing.Size(147, 67);
             this.button2.TabIndex = 23;
             this.button2.Text = "MODIFICAR";
             this.button2.UseVisualStyleBackColor = true;
@@ -390,10 +390,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(81, 399);
+            this.button1.Location = new System.Drawing.Point(81, 408);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 86);
+            this.button1.Size = new System.Drawing.Size(177, 77);
             this.button1.TabIndex = 22;
             this.button1.Text = "INSERTAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -441,9 +441,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PROYECTO_PA_PARCIAL.Properties.Resources.nueva_cuenta__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 399);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 408);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(81, 86);
+            this.pictureBox1.Size = new System.Drawing.Size(81, 77);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
