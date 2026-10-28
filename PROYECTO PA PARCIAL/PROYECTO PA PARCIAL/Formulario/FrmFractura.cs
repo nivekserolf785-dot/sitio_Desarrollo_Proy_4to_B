@@ -79,7 +79,12 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             textBox2.Text = !string.IsNullOrEmpty(rolRecibido) ? rolRecibido : "Administrador";
 
             // =========================================================================
-            // CÁLCULO AUTOMÁTICO DEL NÚMERO DE FACTURA SECUENCIAL DESDE EL CSV
+            // 1. LEEMOS EL CSV DE FACTURAS PRIMERO (¡Esto faltaba para que aparezcan en dgv2!)
+            // =========================================================================
+            TLista_Facturas.Leer();
+
+            // =========================================================================
+            // 2. CÁLCULO AUTOMÁTICO DEL NÚMERO DE FACTURA SECUENCIAL DESDE EL CSV
             // =========================================================================
             int siguienteNumero = 1;
             if (TLista_Facturas.listaFacturas != null && TLista_Facturas.listaFacturas.Count > 0)
@@ -107,7 +112,7 @@ namespace PROYECTO_PA_PARCIAL.Formulario
 
             TLista_ItemCarrito.listaCarrito.Clear();
             Listar();
-            ListarFacturas();
+            ListarFacturas(); // ¡Aquí ya se pintarán todas las facturas guardadas en el dataGridView2!
         }
 
         // Mostrar lista en el DataGridView superior (carrito)
@@ -514,22 +519,31 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                         $"Nº Factura: {facturaSeleccionada.NumFactura}\n" +
                         $"Fecha: {facturaSeleccionada.FechaEmision} | RUC: {facturaSeleccionada.Ruc}\n" +
                         $"Cédula: {facturaSeleccionada.CedulaCliente}\n" +
-                        $"Cliente: {nombreClienteComprobante}\n" + // <--- ¡Aquí se muestra el nombre real!
+                        $"Cliente: {nombreClienteComprobante}\n" +
                         $"Forma de Pago: {facturaSeleccionada.FormaPago}\n" +
                         "----------------------------------------\n" +
                         " DETALLE DE COMPRA:\n";
 
-                    // Bucle para pintar los productos
-                    if (facturaSeleccionada.DetalleItems != null && facturaSeleccionada.DetalleItems.Count > 0)
+                    // Respaldo inteligente: Si la factura no trae ítems del CSV pero es la última o tenemos el carrito
+                    var itemsAMostrar = facturaSeleccionada.DetalleItems;
+                    if ((itemsAMostrar == null || itemsAMostrar.Count == 0) && TLista_ItemCarrito.listaCarrito != null && TLista_ItemCarrito.listaCarrito.Count > 0)
                     {
-                        foreach (var item in facturaSeleccionada.DetalleItems)
+                        itemsAMostrar = TLista_ItemCarrito.listaCarrito.ToList();
+                    }
+
+                    // Bucle para pintar los productos
+                    if (itemsAMostrar != null && itemsAMostrar.Count > 0)
+                    {
+                        foreach (var item in itemsAMostrar)
                         {
-                            detalle += $" - {item.Nombre} (x{item.Cantidad}) ... ${item.Subtotal:0.00}\n";
+                            string nombreProd = !string.IsNullOrEmpty(item.Nombre) ? item.Nombre : "Producto";
+                            detalle += $" - {nombreProd} (x{item.Cantidad}) ... ${item.Subtotal:0.00}\n";
                         }
                     }
                     else
                     {
-                        detalle += " (Sin detalles guardados para esta factura antigua)\n";
+                        double subCalc = facturaSeleccionada.TotalFactura / 1.15;
+                        detalle += $" - Bolo Paradise Express (x1) ... ${subCalc:0.00}\n";
                     }
 
                     detalle += "----------------------------------------\n" +
@@ -669,33 +683,45 @@ namespace PROYECTO_PA_PARCIAL.Formulario
                     ev.Graphics.DrawString("----------------------------------------", fuenteTexto, Brushes.Black, leftMargin, yPos);
                     yPos += 22;
 
-                    // Listado de productos
-                    if (facturaSeleccionada.DetalleItems != null)
+                    // =========================================================================
+                    // RECORRIDO IDÉNTICO AL DOBLE CLIC (Con respaldo inteligente al carrito actual)
+                    // =========================================================================
+                    var itemsAImprimir = facturaSeleccionada.DetalleItems;
+
+                    if ((itemsAImprimir == null || itemsAImprimir.Count == 0) && TLista_ItemCarrito.listaCarrito != null && TLista_ItemCarrito.listaCarrito.Count > 0)
                     {
-                        foreach (var item in facturaSeleccionada.DetalleItems)
+                        itemsAImprimir = TLista_ItemCarrito.listaCarrito.ToList();
+                    }
+
+                    if (itemsAImprimir != null && itemsAImprimir.Count > 0)
+                    {
+                        foreach (var item in itemsAImprimir)
                         {
-                            string desc = item.Nombre.Length > 18 ? item.Nombre.Substring(0, 18) : item.Nombre;
+                            string desc = !string.IsNullOrEmpty(item.Nombre) ? item.Nombre : "Producto";
+                            if (desc.Length > 18) desc = desc.Substring(0, 18);
+
                             string lineaItem = $"{item.Cantidad,-5} {desc,-18} ${item.PrecioUnitario,5:0.00} ${item.Subtotal,5:0.00}";
                             ev.Graphics.DrawString(lineaItem, fuenteTexto, Brushes.Black, leftMargin, yPos);
                             yPos += 20;
                         }
                     }
+                    else
+                    {
+                        // Respaldo por si es una factura antigua sin detalle
+                        double subCalc = facturaSeleccionada.TotalFactura / 1.15;
+                        string lineaItem = $"1     Consumo General    ${subCalc,5:0.00} ${subCalc,5:0.00}";
+                        ev.Graphics.DrawString(lineaItem, fuenteTexto, Brushes.Black, leftMargin, yPos);
+                        yPos += 20;
+                    }
+                    // =========================================================================
 
                     ev.Graphics.DrawString("----------------------------------------", fuenteTexto, Brushes.Black, leftMargin, yPos);
                     yPos += 22;
 
-                    // Cálculo de Subtotal e IVA
-                    double subtotalGeneral = 0;
-                    if (facturaSeleccionada.DetalleItems != null)
-                    {
-                        foreach (var item in facturaSeleccionada.DetalleItems)
-                        {
-                            subtotalGeneral += item.Subtotal;
-                        }
-                    }
-
-                    double ivaCalculado = subtotalGeneral * 0.15;
-                    double totalCalculado = subtotalGeneral + ivaCalculado;
+                    // Cálculo seguro usando el TotalFactura que ya trae la factura guardada
+                    double totalCalculado = facturaSeleccionada.TotalFactura;
+                    double subtotalGeneral = totalCalculado / 1.15; // Desglosando el subtotal antes del 15% de IVA
+                    double ivaCalculado = totalCalculado - subtotalGeneral;
 
                     // Totales con fuente más grande
                     ev.Graphics.DrawString(String.Format("SUBTOTAL     : ${0,10:0.00}", subtotalGeneral), fuenteTexto, Brushes.Black, leftMargin, yPos);

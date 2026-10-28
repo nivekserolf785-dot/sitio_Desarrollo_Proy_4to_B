@@ -44,18 +44,41 @@ namespace PROYECTO_PA_PARCIAL.Controlador
                     {
                         if (!string.IsNullOrWhiteSpace(linea))
                         {
-                            string[] partes = linea.Split(';');
-                            if (partes.Length >= 6)
+                            // Separamos la cabecera de los items (si los trae con '^')
+                            string[] partesPrincipales = linea.Split(new char[] { '^' }, 2);
+                            string[] partesCabecera = partesPrincipales[0].Split(';');
+
+                            if (partesCabecera.Length >= 6)
                             {
-                                // Asumiendo formato: NumFactura;Ruc;CedulaCliente;FechaEmision;TotalFactura;FormaPago
                                 Factura f = new Factura(
-                                    partes[0],
-                                    partes[1],
-                                    partes[2],
-                                    partes[3],
-                                    double.TryParse(partes[4], out double tot) ? tot : 0.0,
-                                    partes[5]
+                                    partesCabecera[0],
+                                    partesCabecera[1],
+                                    partesCabecera[2],
+                                    partesCabecera[3],
+                                    double.TryParse(partesCabecera[4], out double tot) ? tot : 0.0,
+                                    partesCabecera[5]
                                 );
+
+                                // Si la línea contiene items serializados, los deserializamos y agregamos
+                                if (partesPrincipales.Length > 1 && !string.IsNullOrEmpty(partesPrincipales[1]))
+                                {
+                                    string[] arrayItems = partesPrincipales[1].Split(new char[] { '^' }, StringSplitOptions.RemoveEmptyEntries);
+                                    foreach (var strItem in arrayItems)
+                                    {
+                                        string[] datosItem = strItem.Split('|');
+                                        if (datosItem.Length >= 4)
+                                        {
+                                            string cod = datosItem[0];
+                                            string nom = datosItem[1];
+                                            double prec = double.TryParse(datosItem[2], out double p) ? p : 0.0;
+                                            int cant = int.TryParse(datosItem[3], out int c) ? c : 0;
+
+                                            ItemCarrito item = new ItemCarrito(cod, nom, prec, cant);
+                                            f.DetalleItems.Add(item);
+                                        }
+                                    }
+                                }
+
                                 listaFacturas.Add(f);
                             }
                         }

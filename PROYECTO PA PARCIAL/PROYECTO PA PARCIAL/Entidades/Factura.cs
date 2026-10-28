@@ -57,7 +57,18 @@ namespace PROYECTO_PA_PARCIAL.Entidades
 
         public string GetFactura()
         {
-            string datos = $"{this.NumFactura};{this.Ruc};{this.CedulaCliente};{this.FechaEmision};{this.TotalFactura};{this.FormaPago};";
+            // Cabecera básica
+            string datos = $"{this.NumFactura};{this.Ruc};{this.CedulaCliente};{this.FechaEmision};{this.TotalFactura};{this.FormaPago}";
+
+            // Serializamos los items del carrito si existen (Ej: ^Cod|Nom|Precio|Cant^Cod|Nom|Precio|Cant)
+            if (this.DetalleItems != null && this.DetalleItems.Count > 0)
+            {
+                foreach (var item in this.DetalleItems)
+                {
+                    datos += $"^{item.Codigo}|{item.Nombre}|{item.PrecioUnitario}|{item.Cantidad}";
+                }
+            }
+
             return datos;
         }
     }
