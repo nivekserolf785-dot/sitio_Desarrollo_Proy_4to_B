@@ -139,5 +139,48 @@ namespace PROYECTO_PA_PARCIAL.Formulario
             FrmReporteFacturas frmReporte = new FrmReporteFacturas();
             AbrirFormularioEnPanel(frmReporte);
         }
-    }
-}
+
+        private void stockProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("Stock productos");
+            AbrirFormularioEnPanel(frm);
+        }
+
+        private void mejorClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("Mejor cliente");
+            AbrirFormularioEnPanel(frm);
+        }
+
+        private void productosCercaAExpirarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("Productos cerca a expirar");
+            AbrirFormularioEnPanel(frm);
+        }
+
+        private void capitalMasInversionEnProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("Total sum $ productos");
+            AbrirFormularioEnPanel(frm);
+        }
+
+        private void porcentajeDeComprasPorClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("porcentaje de compras por cliente");
+            AbrirFormularioEnPanel(frm);
+        }
+
+        private void porcentajeComprasFemeninoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("porcentaje compras femenino");
+            AbrirFormularioEnPanel(frm);
+        }
+
+        private void porcentajeComprasMasculinoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Frm_Consultas_linq frm = new Frm_Consultas_linq("porcentaje compras masculino");
+            AbrirFormularioEnPanel(frm);
+        }
+
+    } 
+}    

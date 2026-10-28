@@ -145,30 +145,6 @@
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
     <value>Facturacion</value>
   </data>
-  <data name="reportesClientesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="reportesClientesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reportes clientes</value>
-  </data>
-  <data name="reporteProductosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="reporteProductosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte Productos</value>
-  </data>
-  <data name="reporteVendedoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="reporteVendedoresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte Vendedores</value>
-  </data>
-  <data name="reporteFacturasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="reporteFacturasToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte Facturas</value>
-  </data>
   <data name="clienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 20</value>
   </data>
@@ -180,6 +156,54 @@
   </data>
   <data name="toolStripMenuItem5.Text" xml:space="preserve">
     <value>Bloquear</value>
+  </data>
+  <data name="stockProductosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="stockProductosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Stock productos</value>
+  </data>
+  <data name="mejorClienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="mejorClienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mejor cliente</value>
+  </data>
+  <data name="productosCercaAExpirarToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="productosCercaAExpirarToolStripMenuItem.Text" xml:space="preserve">
+    <value>Productos cerca a expirar</value>
+  </data>
+  <data name="capitalMasInversionEnProductosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="capitalMasInversionEnProductosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Total sum $ productos</value>
+  </data>
+  <data name="porcentajeDeComprasPorClienteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="porcentajeDeComprasPorClienteToolStripMenuItem.Text" xml:space="preserve">
+    <value>porcentaje de compras por cliente</value>
+  </data>
+  <data name="porcentajeComprasFemeninoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="porcentajeComprasFemeninoToolStripMenuItem.Text" xml:space="preserve">
+    <value>porcentaje compras femenino</value>
+  </data>
+  <data name="porcentajeComprasMasculinoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="porcentajeComprasMasculinoToolStripMenuItem.Text" xml:space="preserve">
+    <value>porcentaje compras masculino</value>
+  </data>
+  <data name="consultasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="consultasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Consultas</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -205,6 +229,30 @@
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="reportesClientesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="reportesClientesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reportes clientes</value>
+  </data>
+  <data name="reporteProductosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="reporteProductosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reporte Productos</value>
+  </data>
+  <data name="reporteVendedoresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="reporteVendedoresToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reporte Vendedores</value>
+  </data>
+  <data name="reporteFacturasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="reporteFacturasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reporte Facturas</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panelContenedor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -309,16 +357,64 @@
   <data name="&gt;&gt;reporteVendedoresToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;reporteFacturasToolStripMenuItem.Name" xml:space="preserve">
+    <value>reporteFacturasToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;reporteFacturasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
     <value>toolStripMenuItem5</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;reporteFacturasToolStripMenuItem.Name" xml:space="preserve">
-    <value>reporteFacturasToolStripMenuItem</value>
+  <data name="&gt;&gt;consultasToolStripMenuItem.Name" xml:space="preserve">
+    <value>consultasToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;reporteFacturasToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;consultasToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;stockProductosToolStripMenuItem.Name" xml:space="preserve">
+    <value>stockProductosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;stockProductosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mejorClienteToolStripMenuItem.Name" xml:space="preserve">
+    <value>mejorClienteToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;mejorClienteToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productosCercaAExpirarToolStripMenuItem.Name" xml:space="preserve">
+    <value>productosCercaAExpirarToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;productosCercaAExpirarToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;capitalMasInversionEnProductosToolStripMenuItem.Name" xml:space="preserve">
+    <value>capitalMasInversionEnProductosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;capitalMasInversionEnProductosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;porcentajeDeComprasPorClienteToolStripMenuItem.Name" xml:space="preserve">
+    <value>porcentajeDeComprasPorClienteToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porcentajeDeComprasPorClienteToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;porcentajeComprasFemeninoToolStripMenuItem.Name" xml:space="preserve">
+    <value>porcentajeComprasFemeninoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porcentajeComprasFemeninoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;porcentajeComprasMasculinoToolStripMenuItem.Name" xml:space="preserve">
+    <value>porcentajeComprasMasculinoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porcentajeComprasMasculinoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -78,6 +78,12 @@
     <Compile Include="Formulario\FrmFractura.Designer.cs">
       <DependentUpon>FrmFractura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\Frm_Consultas_linq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\Frm_Consultas_linq.Designer.cs">
+      <DependentUpon>Frm_Consultas_linq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\Frm_Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmFractura.resx">
       <DependentUpon>FrmFractura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\Frm_Consultas_linq.resx">
+      <DependentUpon>Frm_Consultas_linq.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\Frm_Inicio.resx">
       <DependentUpon>Frm_Inicio.cs</DependentUpon>

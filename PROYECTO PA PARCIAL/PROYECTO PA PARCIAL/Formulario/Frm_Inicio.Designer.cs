@@ -38,9 +38,17 @@
             this.reportesClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteVendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.reporteFacturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mejorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosCercaAExpirarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.capitalMasInversionEnProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porcentajeDeComprasPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porcentajeComprasFemeninoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porcentajeComprasMasculinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +60,8 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem1,
             this.clienteToolStripMenuItem,
-            this.toolStripMenuItem5});
+            this.toolStripMenuItem5,
+            this.consultasToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -109,6 +118,12 @@
             resources.ApplyResources(this.reporteVendedoresToolStripMenuItem, "reporteVendedoresToolStripMenuItem");
             this.reporteVendedoresToolStripMenuItem.Click += new System.EventHandler(this.reporteVendedoresToolStripMenuItem_Click);
             // 
+            // reporteFacturasToolStripMenuItem
+            // 
+            this.reporteFacturasToolStripMenuItem.Name = "reporteFacturasToolStripMenuItem";
+            resources.ApplyResources(this.reporteFacturasToolStripMenuItem, "reporteFacturasToolStripMenuItem");
+            this.reporteFacturasToolStripMenuItem.Click += new System.EventHandler(this.reporteFacturasToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
@@ -121,11 +136,60 @@
             resources.ApplyResources(this.panelContenedor, "panelContenedor");
             this.panelContenedor.Name = "panelContenedor";
             // 
-            // reporteFacturasToolStripMenuItem
+            // consultasToolStripMenuItem
             // 
-            this.reporteFacturasToolStripMenuItem.Name = "reporteFacturasToolStripMenuItem";
-            resources.ApplyResources(this.reporteFacturasToolStripMenuItem, "reporteFacturasToolStripMenuItem");
-            this.reporteFacturasToolStripMenuItem.Click += new System.EventHandler(this.reporteFacturasToolStripMenuItem_Click);
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stockProductosToolStripMenuItem,
+            this.mejorClienteToolStripMenuItem,
+            this.productosCercaAExpirarToolStripMenuItem,
+            this.capitalMasInversionEnProductosToolStripMenuItem,
+            this.porcentajeDeComprasPorClienteToolStripMenuItem,
+            this.porcentajeComprasFemeninoToolStripMenuItem,
+            this.porcentajeComprasMasculinoToolStripMenuItem});
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            resources.ApplyResources(this.consultasToolStripMenuItem, "consultasToolStripMenuItem");
+            // 
+            // stockProductosToolStripMenuItem
+            // 
+            this.stockProductosToolStripMenuItem.Name = "stockProductosToolStripMenuItem";
+            resources.ApplyResources(this.stockProductosToolStripMenuItem, "stockProductosToolStripMenuItem");
+            this.stockProductosToolStripMenuItem.Click += new System.EventHandler(this.stockProductosToolStripMenuItem_Click);
+            // 
+            // mejorClienteToolStripMenuItem
+            // 
+            this.mejorClienteToolStripMenuItem.Name = "mejorClienteToolStripMenuItem";
+            resources.ApplyResources(this.mejorClienteToolStripMenuItem, "mejorClienteToolStripMenuItem");
+            this.mejorClienteToolStripMenuItem.Click += new System.EventHandler(this.mejorClienteToolStripMenuItem_Click);
+            // 
+            // productosCercaAExpirarToolStripMenuItem
+            // 
+            this.productosCercaAExpirarToolStripMenuItem.Name = "productosCercaAExpirarToolStripMenuItem";
+            resources.ApplyResources(this.productosCercaAExpirarToolStripMenuItem, "productosCercaAExpirarToolStripMenuItem");
+            this.productosCercaAExpirarToolStripMenuItem.Click += new System.EventHandler(this.productosCercaAExpirarToolStripMenuItem_Click);
+            // 
+            // capitalMasInversionEnProductosToolStripMenuItem
+            // 
+            this.capitalMasInversionEnProductosToolStripMenuItem.Name = "capitalMasInversionEnProductosToolStripMenuItem";
+            resources.ApplyResources(this.capitalMasInversionEnProductosToolStripMenuItem, "capitalMasInversionEnProductosToolStripMenuItem");
+            this.capitalMasInversionEnProductosToolStripMenuItem.Click += new System.EventHandler(this.capitalMasInversionEnProductosToolStripMenuItem_Click);
+            // 
+            // porcentajeDeComprasPorClienteToolStripMenuItem
+            // 
+            this.porcentajeDeComprasPorClienteToolStripMenuItem.Name = "porcentajeDeComprasPorClienteToolStripMenuItem";
+            resources.ApplyResources(this.porcentajeDeComprasPorClienteToolStripMenuItem, "porcentajeDeComprasPorClienteToolStripMenuItem");
+            this.porcentajeDeComprasPorClienteToolStripMenuItem.Click += new System.EventHandler(this.porcentajeDeComprasPorClienteToolStripMenuItem_Click);
+            // 
+            // porcentajeComprasFemeninoToolStripMenuItem
+            // 
+            this.porcentajeComprasFemeninoToolStripMenuItem.Name = "porcentajeComprasFemeninoToolStripMenuItem";
+            resources.ApplyResources(this.porcentajeComprasFemeninoToolStripMenuItem, "porcentajeComprasFemeninoToolStripMenuItem");
+            this.porcentajeComprasFemeninoToolStripMenuItem.Click += new System.EventHandler(this.porcentajeComprasFemeninoToolStripMenuItem_Click);
+            // 
+            // porcentajeComprasMasculinoToolStripMenuItem
+            // 
+            this.porcentajeComprasMasculinoToolStripMenuItem.Name = "porcentajeComprasMasculinoToolStripMenuItem";
+            resources.ApplyResources(this.porcentajeComprasMasculinoToolStripMenuItem, "porcentajeComprasMasculinoToolStripMenuItem");
+            this.porcentajeComprasMasculinoToolStripMenuItem.Click += new System.EventHandler(this.porcentajeComprasMasculinoToolStripMenuItem_Click);
             // 
             // Frm_Inicio
             // 
@@ -160,5 +224,13 @@
         private System.Windows.Forms.ToolStripMenuItem reporteProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteVendedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteFacturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mejorClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productosCercaAExpirarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem capitalMasInversionEnProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porcentajeDeComprasPorClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porcentajeComprasFemeninoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porcentajeComprasMasculinoToolStripMenuItem;
     }
 }
