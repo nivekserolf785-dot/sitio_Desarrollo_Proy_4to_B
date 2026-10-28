@@ -1,4 +1,4 @@
-# 🚀 Paradise Express — Sistema de Gestión Comercial y Facturación
+#  Paradise Express — Sistema de Gestión Comercial y Facturación
 
 <p align="center">
   <b>Aplicación de escritorio robusta desarrollada en C# bajo arquitectura MVC con persistencia en archivos CSV y motor de consultas LINQ.</b>
@@ -6,12 +6,12 @@
 
 ---
 
-## 📋 Descripción del Proyecto
+##  Descripción del Proyecto
 **Paradise Express** es un sistema integral de escritorio diseñado para optimizar el control de inventarios, la administración de clientes y vendedores, y la emisión de facturas con carrito de compras detallado. El proyecto está construido bajo estrictos principios de **Programación Orientada a Objetos (POO)** y buenas prácticas de ingeniería de software, utilizando una arquitectura modular que separa la lógica de negocio de la interfaz gráfica en Windows Forms.
 
 ---
 
-## ✨ Características Principales
+##  Características Principales
 
 * **Arquitectura MVC (Modelo-Vista-Controlador):** Separación clara entre entidades de negocio, vistas de Windows Forms y controladores de listas en memoria.
 * **Persistencia Local en CSV:** Sistema sincronizado mediante archivos planos separados por punto y coma, con métodos de lectura y escritura automatizados (`Leer()` y `Guardar()`).
@@ -26,7 +26,7 @@
 
 ---
 
-## 🛠️ Tecnologías y Herramientas
+##  Tecnologías y Herramientas
 * **Lenguaje:** C# (.NET Framework / WinForms)
 * **Paradigmas:** Programación Orientada a Objetos (POO), Expresiones LINQ, Arquitectura MVC.
 * **Almacenamiento:** Archivos Planos CSV.
@@ -35,7 +35,7 @@
 
 ---
 
-## 📂 Estructura del Código Fuente
+##  Estructura del Código Fuente
 ```text
 PROYECTO_PA_PARCIAL/
 │
