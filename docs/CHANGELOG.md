@@ -1,11 +1,11 @@
-# 📋 Historial de Cambios (Changelog) — Paradise Express
+#  Historial de Cambios (Changelog) — Paradise Express
 
 Todas las modificaciones, actualizaciones y versiones del sistema **Paradise Express** se documentan en este archivo bajo el estándar de control de versiones semántico.
 
 ---
 
 ## [1.0.0] - 2026-10-28
-### ✨ Añadido
+
 * Estructuración inicial del proyecto bajo el patrón arquitectónico **MVC** en C# .NET WinForms.
 * Módulo de gestión (CRUD) para Clientes, Vendedores y Productos con persistencia local en archivos planos **CSV**.
 * Implementación del motor de facturación con carrito de compras detallado (`ItemCarrito`) y rebaja automática de stock.
